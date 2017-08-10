@@ -19,9 +19,13 @@ var userSchema = mongoose.Schema({
             restImage: {type: String}
         }
     ],
-    follows: {type: String},
-    following: {type: String},
-    likes: {type: String}
+    facebook: {
+        id:    String,
+        token: String
+    },
+    follows: [String],
+    following: [String],
+    favorites : [String]
 },{collection: "rest_user"});
 
 module.exports = userSchema;

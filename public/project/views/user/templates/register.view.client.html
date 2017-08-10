@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="container-fluid">
+    <label for="username">Username</label>
+    <input type="text"
+           class="form-control"
+           id="username"
+           ng-model="user.username"
+           placeholder="AliceWonderland">
 
-</body>
-</html>
+    <label for="firstname">First Name</label>
+    <input type="text"
+           class="form-control"
+           id="firstname"
+           ng-model="user.firstname"
+           placeholder="Alice">
+
+    <label for="lastname">Last Name</label>
+    <input type="text"
+           class="form-control"
+           id="lastname"
+           ng-model="user.lastname"
+           placeholder="Wonderland">
+
+    <label for="email">Email</label>
+    <input type="email"
+           class="form-control"
+           id="email"
+           ng-model="user.email"
+           placeholder="alice@gmail.com">
+
+    <label for="password">Password</label>
+    <input type="password"
+           class="form-control"
+           id="password"
+           ng-model="user.password"
+           placeholder="alice@123">
+
+    <label for="password2">Re-Enter Password</label>
+    <input type="password"
+           class="form-control"
+           id="password2"
+           ng-model="user.password2"
+           placeholder="alice@123">
+
+    <a class="btn btn-danger btn-block"
+       ng-click="model.register(user)">Register</a>
+</div>

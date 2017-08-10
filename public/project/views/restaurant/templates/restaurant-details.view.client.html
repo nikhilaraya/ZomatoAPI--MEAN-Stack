@@ -5,3 +5,12 @@
 <h4>Aggregate Rating: {{model.restaurant.user_rating.aggregate_rating}}</h4>
 <h4>Rating Text: {{model.restaurant.user_rating.rating_text}}</h4>
 <h4>Votes: {{model.restaurant.user_rating.votes}}</h4>
+<a ng-show="model.userId" ng-if="model.isNotFavorite" ng-click="model.addToFavorites()">Favorite</a>
+<a ng-show="model.userId" ng-if="!model.isNotFavorite" ng-click="model.removeFavorite()">Remove From Favorites</a>
+<div ng-show="model.userId">
+    <label for="rating">Rating(scale 0 to 5)</label>
+    <input type="number" id="rating" ng-model="model.rating" max="5" min="0">
+    <label for="review">Review</label>
+    <textarea ng-model="model.review" rows="3" id="review"></textarea>
+    <a ng-click=""></a>
+</div>
