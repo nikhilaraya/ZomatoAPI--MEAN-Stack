@@ -10,7 +10,6 @@
 
         var model = this;
         model.userId = currentUser._id;
-        console.log(model.userId);
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
         model.logout = logout;
@@ -20,7 +19,6 @@
                 .findUserById(model.userId)
                 .then(function (user) {
                     model.user = user;
-                    console.log(model.user.username);
                 }, function (error) {
                     model.error = "User not found";
                 });

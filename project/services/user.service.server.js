@@ -19,6 +19,7 @@ app.get('/api/user/:userId',findUserById);
 app.put('/api/user/:userId/restaurant/:restId/addToFavorites',addToFavorites);
 app.get('/api/user/:userId/restaurant/:restId/isFavorite',isFavoriteRestaurant);
 app.put('/api/user/:userId/restaurant/:restId/removeFavorite',removeFavorite);
+app.put('/api/user/:userId/restaurant/:restId/rateAndReview',rateAndReview);
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -35,6 +36,21 @@ var facebookConfig = {
 };
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+
+function rateAndReview(req,res) {
+    var rateReviewObj = req.body;
+    userModel
+        .addRateAndReview(rateReviewObj)
+        .then(function (user) {
+        if(user)
+        {
+            res.json('true');
+        }
+        else {
+            res.json('false');
+        }
+    })
+}
 
 function removeFavorite(req,res) {
     var userId = req.params.userId;
@@ -60,11 +76,9 @@ function isFavoriteRestaurant(req,res) {
         .isFavoriteRestaurant(userId,restId)
         .then(function (liked) {
            if(liked) {
-               console.log("is liked");
                res.json('true');
            }
            else {
-               console.log("not liked");
                res.send('false');
            }
         });
@@ -73,7 +87,6 @@ function isFavoriteRestaurant(req,res) {
 function addToFavorites(req,res) {
     var userId = req.params.userId;
     var restId = req.params.restId;
-    console.log(userId+" "+restId);
     userModel
         .addToFavorites(userId,restId)
         .then(function(userUpdated) {
@@ -141,7 +154,6 @@ function registerUser(req,res) {
 function findUserByCredentials(req,res) {
     var username = req.query.username;
     var password = req.query.password;
-    console.log(username+password);
     if(username && password){
         userModel
             .findUserByCredentials(username,password)
@@ -153,20 +165,16 @@ function findUserByCredentials(req,res) {
     }
     else if(username)
     {
-        console.log("username else"+username);
         userModel
             .findUserByUsername(username)
             .then(function (user) {
                 if(user){
-                    console.log("jmmm");
                     res.json(user);
                 }
                 else {
-                    console.log("kkk");
                     res.json(null);
                 }
             },function () {
-                console.log("no user");
                 res.json(null);
             });
     }

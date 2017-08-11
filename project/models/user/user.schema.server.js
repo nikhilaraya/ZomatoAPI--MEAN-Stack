@@ -12,11 +12,9 @@ var userSchema = mongoose.Schema({
     role:{type: String,default:'User',enum:['Admin','User']},
     rateAndReviewRestaurant:[
         {
-            name: {type: String},
             restId: {type: String},
             rating: {type: Number},
-            review:{type:String},
-            restImage: {type: String}
+            review:{type:String}
         }
     ],
     facebook: {

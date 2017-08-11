@@ -7,14 +7,11 @@ var restaurantSchema = mongoose.Schema({
     restId: {type: String},
     name: {type:String},
     imageUrl: {type: String},
-    ratings:[{
+    rateAndReview:[{
         userId: {type: String},
-        rating: {type: Number}
-    }],
-    reviews:[{
-        userId:{type: String},
-        text:{type: String}
-    }],
+        rating: {type: Number},
+        review: {type:String}
+    }]
 },{collection: "project_restaurant"});
 
 module.exports = restaurantSchema;

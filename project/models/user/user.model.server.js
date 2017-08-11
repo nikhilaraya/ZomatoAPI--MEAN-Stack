@@ -13,15 +13,26 @@ userModel.findUserByFacebookId = findUserByFacebookId;
 userModel.addToFavorites = addToFavorites;
 userModel.isFavoriteRestaurant = isFavoriteRestaurant;
 userModel.removeFavorite = removeFavorite;
+userModel.addRateAndReview = addRateAndReview;
 
 module.exports = userModel;
+
+function addRateAndReview(rateReviewObj) {
+    console.log("23");
+    var rateReview ={
+        restId : rateReviewObj.restId,
+        rating : rateReviewObj.rating,
+        review : rateReviewObj.review
+    }
+    return userModel
+        .update({_id: rateReviewObj.userId}, {$push: {rateAndReviewRestaurant: rateReview}});
+}
 
 function removeFavorite(userId,restId) {
     return userModel.update({_id: userId},{$pullAll:{favorites: [restId]}})
 }
 
 function isFavoriteRestaurant(userId,restId) {
-    console.log(userId,restId);
     return userModel.findOne({_id:userId,favorites: {$in: [restId]}});
 }
 function addToFavorites(userId,restId) {
@@ -43,6 +54,5 @@ function findUserById(userId) {
 }
 
 function findUserByUsername(username) {
-    //console.log("db"+username);
     return userModel.findOne({username: username});
 }

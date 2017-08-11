@@ -16,12 +16,22 @@
             findUserById: findUserById,
             addToFavorites: addToFavorites,
             isFavoriteRestaurant: isFavoriteRestaurant,
-            removeFavorite: removeFavorite
+            removeFavorite: removeFavorite,
+            submitRatingAndReview : submitRatingAndReview
         }
         return api;
 
+        function submitRatingAndReview(userId,rateReviewObj) {
+            console.log("21");
+            var url = "/api/user/"+userId+"/restaurant/"+rateReviewObj.restId+"/rateAndReview";
+            return $http.put(url,rateReviewObj).then(function (response) {
+                console.log("25");
+                return response.data;
+            })
+        }
+
         function removeFavorite(userId,restId) {
-            var url = "/api/user/"+userId+"/restaurant/"+restId+"/removeFavorite"
+            var url = "/api/user/"+userId+"/restaurant/"+restId+"/removeFavorite";
             return $http.put(url)
                 .then(function (response) {
                     return response.data;
@@ -38,7 +48,6 @@
 
         function addToFavorites(userId,restId) {
             var url = "/api/user/"+userId+"/restaurant/"+restId+"/addToFavorites";
-            console.log("like"+userId+" "+restId);
             return $http.put(url)
                 .then(function (response) {
                     return response.data;
@@ -70,10 +79,8 @@
 
         function findUserByUsername(username) {
             var url = "/api/user?username="+username;
-            console.log(url);
             return $http.get(url)
                 .then(function (response) {
-                    console.log(response.data);
                 return response.data;
             })
         }
@@ -87,16 +94,13 @@
     }
 
     function login(username,password) {
-        console.log("2");
         var url = "/api/login";
         var credentials = {
             username: username,
             password: password
         };
-        console.log(username+" "+password);
         return $http.post(url, credentials)
             .then(function (response) {
-                console.log("3");
                 return response.data;
             });
     }}

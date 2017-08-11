@@ -16,7 +16,6 @@
 
         model.login = login;
         function login(username,password) {
-            console.log("1");
             userService
                 .login(username,password)
                 .then(function (user) {
