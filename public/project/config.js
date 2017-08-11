@@ -49,6 +49,14 @@
                     loggedInUser : loggedInUser
                 }
             })
+            .when("/user/:userId",{
+                templateUrl:'views/user/templates/user-profile.view.client.html',
+                controller: 'userProfileController',
+                controllerAs: 'model',
+                resolve: {
+                    loggedInUser : loggedInUser
+                }
+            })
     }
 
     function loggedInUser(userService,$q,$location) {

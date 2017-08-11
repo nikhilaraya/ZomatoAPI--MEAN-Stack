@@ -36,7 +36,6 @@
    class="btn btn-success btn-block">Update</a>
 <a ng-click="model.deleteUser(model.user)"
    class="btn btn-danger btn-block">Unregister</a>
-<a class="btn btn-primary btn-block"
-   href="#!/website">Websites</a>
+<a ng-show="model.user.role === 'Admin'">Admin</a>
 <a class="btn btn-danger  btn-block"
    ng-click="model.logout()">Logout</a>

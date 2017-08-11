@@ -1,0 +1,22 @@
+<div >
+    <h1>{{model.user.username}}</h1>
+    <div ng-repeat="i in model.user.rateAndReviewRestaurant">
+        <a href="#!/restaurant/{{i.restId}}">{{i.restId}}</a>
+        <h5>i.review</h5>
+        <h5>i.rating</h5>
+    </div>
+    <div>
+        <h3>favorites</h3>
+        <ul ng-repeat="i in model.user.favorites">
+            <li>{{i}}</li>
+        </ul>
+    </div>
+    <div>
+        <h3>follows</h3>
+        <ul ng-repeat="i in model.user.follows">
+            <li>{{i}}</li>
+        </ul>
+    </div>
+    <a ng-show="model.loggedInId" ng-if="model.unFollow" ng-click="model.followUser()">Follow</a>
+    <a ng-show="model.loggedInId" ng-if="!model.unFollow" ng-click="model.unFollowUser()">UnFollow</a>
+</div>

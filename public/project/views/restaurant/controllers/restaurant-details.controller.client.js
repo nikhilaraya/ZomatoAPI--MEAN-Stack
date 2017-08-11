@@ -36,8 +36,17 @@
                         model.isNotFavorite = true;
                     }
                 })
+            restaurantService
+                .findRestaurantById(restId)
+                .then(function (found) {
+                    model.restaurantRatingAndReviews = [];
+                    model.restaurantRatingAndReviews = found.rateAndReview;
+                });
         }
         init();
+        
+
+
 
         function submitRatingAndReview() {
             console.log("in controller begin");
@@ -105,7 +114,9 @@
 
         function submitUserReviews(rateReviewObj) {
             userService
-                .submitRatingAndReview(model.userId,rateReviewObj);
+                .submitRatingAndReview(model.userId,rateReviewObj).then(function (response) {
+
+            });
         }
         function addToFavorites() {
             userService

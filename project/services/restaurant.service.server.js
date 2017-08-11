@@ -8,6 +8,14 @@ var restaurantModel = require('../models/restaurant/restaurant.model.server');
 app.put('/api/user/:userId/restaurant/:restId/rateAndReviewSubmit',addRatingAndReview);
 app.get('/api/restaurant/:restId', findRestaurantById);
 app.post('/api/restaurant',createRestaurant);
+app.get('/api/restaurant/:restId/ratingAndReview',getRatingAndReviews);
+
+function getRatingAndReviews(req,res) {
+    var restId = req.params.restId;
+    restaurantModel.getRatingAndReviews(restId).then(function (restaurant) {
+
+    })
+}
 
 function createRestaurant(req,res) {
     var restObj = req.body;

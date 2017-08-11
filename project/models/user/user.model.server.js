@@ -14,8 +14,23 @@ userModel.addToFavorites = addToFavorites;
 userModel.isFavoriteRestaurant = isFavoriteRestaurant;
 userModel.removeFavorite = removeFavorite;
 userModel.addRateAndReview = addRateAndReview;
+userModel.followUser = followUser;
+userModel.isFollowingUser = isFollowingUser;
+userModel.unFollowUser = unFollowUser;
 
 module.exports = userModel;
+
+function unFollowUser(userId, unfollowId) {
+    return userModel.update({_id: userId},{$pullAll:{follows: [unfollowId]}});
+}
+
+function isFollowingUser(userId,followId) {
+    return userModel.findOne({_id:userId,follows: {$in: [followId]}});
+}
+
+function followUser(userId,followId) {
+    return userModel.update({_id: userId}, {$push:{follows: followId}});
+}
 
 function addRateAndReview(rateReviewObj) {
     console.log("23");
@@ -29,7 +44,7 @@ function addRateAndReview(rateReviewObj) {
 }
 
 function removeFavorite(userId,restId) {
-    return userModel.update({_id: userId},{$pullAll:{favorites: [restId]}})
+    return userModel.update({_id: userId},{$pullAll:{favorites: [restId]}});
 }
 
 function isFavoriteRestaurant(userId,restId) {

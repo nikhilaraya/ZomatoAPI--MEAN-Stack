@@ -17,9 +17,33 @@
             addToFavorites: addToFavorites,
             isFavoriteRestaurant: isFavoriteRestaurant,
             removeFavorite: removeFavorite,
-            submitRatingAndReview : submitRatingAndReview
+            submitRatingAndReview : submitRatingAndReview,
+            followUser : followUser,
+            isFollowingUser : isFollowingUser,
+            unFollowUser : unFollowUser
         }
         return api;
+
+        function unFollowUser(loggedInUserId,unfollowId) {
+            var url = "/api/user/"+loggedInUserId+"/unfollow/"+unfollowId;
+            return $http.get(url).then(function (response) {
+                return response.data;
+            })
+        }
+
+        function isFollowingUser(loggedInUserId,followId) {
+            var url = "/api/user/"+loggedInUserId+"/follow/"+followId;
+            return $http.get(url).then(function (response) {
+                return response.data;
+            })
+        }
+
+        function followUser(loggedInUserId,followId){
+            var url = "/api/user/"+loggedInUserId+"/follow/"+followId;
+            return $http.put(url).then(function (response) {
+                return response.data;
+            })
+        }
 
         function submitRatingAndReview(userId,rateReviewObj) {
             console.log("21");

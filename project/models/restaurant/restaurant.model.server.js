@@ -11,6 +11,11 @@ module.exports = restaurantModel;
 restaurantModel.addRatingAndReview = addRatingAndReview;
 restaurantModel.findRestaurantById = findRestaurantById;
 restaurantModel.createRestaurant = createRestaurant;
+restaurantModel.getRatingAndReviews = getRatingAndReviews;
+
+function getRatingAndReviews(restId) {
+    //return restaurantModel.find
+}
 
 function createRestaurant(restObj) {
     console.log("11");

@@ -20,6 +20,9 @@ app.put('/api/user/:userId/restaurant/:restId/addToFavorites',addToFavorites);
 app.get('/api/user/:userId/restaurant/:restId/isFavorite',isFavoriteRestaurant);
 app.put('/api/user/:userId/restaurant/:restId/removeFavorite',removeFavorite);
 app.put('/api/user/:userId/restaurant/:restId/rateAndReview',rateAndReview);
+app.put('/api/user/:userId/follow/:followId',followUser);
+app.get('/api/user/:userId/follow/:followId',isFollowing);
+app.get('/api/user/:userId/unfollow/:unfollowId',unFollowUser);
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -36,6 +39,36 @@ var facebookConfig = {
 };
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+
+function unFollowUser(req,res) {
+    var userId = req.params.userId;
+    var unfollowId = req.params.unfollowId;
+    userModel.unFollowUser(userId,unfollowId).then(function (userUpdated) {
+        res.json(userUpdated);
+    })
+}
+
+function isFollowing(req,res) {
+    var userId = req.params.userId;
+    var followId = req.params.followId;
+    userModel.isFollowingUser(userId,followId).then(function (followed) {
+        if(followed){
+            res.json('true');
+        }
+        else{
+            res.json('false');
+        }
+    });
+}
+
+function followUser(req,res) {
+    var userId = req.params.userId;
+    var followId = req.params.followId;
+    userModel.followUser(userId,followId)
+        .then(function (userUpdated) {
+            res.json(userUpdated);
+    })
+}
 
 function rateAndReview(req,res) {
     var rateReviewObj = req.body;

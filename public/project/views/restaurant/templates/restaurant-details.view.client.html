@@ -7,6 +7,11 @@
 <h4>Votes: {{model.restaurant.user_rating.votes}}</h4>
 <a ng-show="model.userId" ng-if="model.isNotFavorite" ng-click="model.addToFavorites()">Favorite</a>
 <a ng-show="model.userId" ng-if="!model.isNotFavorite" ng-click="model.removeFavorite()">Remove From Favorites</a>
+<div ng-repeat="r in model.restaurantRatingAndReviews">
+    <a href="#!/user/{{r.userId}}">{{r.userId}}</a>
+    <h6>{{r.review}}</h6>
+    <h6>{{r.rating}}</h6>
+</div>
 <div ng-show="model.userId">
     <label for="rating">Rating(scale 0 to 5)</label>
     <input type="number" id="rating" ng-model="model.rating" max="5" min="0">
