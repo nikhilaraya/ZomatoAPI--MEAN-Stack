@@ -3,6 +3,7 @@
  */
 var app = require('../../express');
 var userModel = require('../models/user/user.model.server');
+var restaurantModel = require('../models/restaurant/restaurant.model.server');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
@@ -23,6 +24,9 @@ app.put('/api/user/:userId/restaurant/:restId/rateAndReview',rateAndReview);
 app.put('/api/user/:userId/follow/:followId',followUser);
 app.get('/api/user/:userId/follow/:followId',isFollowing);
 app.get('/api/user/:userId/unfollow/:unfollowId',unFollowUser);
+app.delete('/api/user/:userId',deleteUser);
+app.get('/api/admin/findAllUsers',findAllUsers);
+app.put('/api/user/:userId/updateUser',updateUser);
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 var FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -39,6 +43,39 @@ var facebookConfig = {
 };
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+
+function updateUser(req,res) {
+    var userId = req.params.userId;
+    var user = req.body;
+    userModel
+        .updateUser(userId,user)
+        .then(function (status) {
+        res.send(status);
+    });
+}
+
+function findAllUsers(req,res) {
+    userModel
+        .findAllUsers()
+        .then(function (users) {
+        res.json(users);
+    })
+}
+
+function deleteUser(req,res) {
+    var userId = req.params.userId;
+    userModel.deleteUser(userId)
+        .then(function (status) {
+            console.log("delete user"+userId);
+            restaurantModel.deleteUserReview(userId)
+                .then(function (status) {
+                userModel.deleteUserFromFollowers(userId)
+                    .then(function (status) {
+                        res.send(status);
+                    })
+            });
+    })
+}
 
 function unFollowUser(req,res) {
     var userId = req.params.userId;

@@ -10,10 +10,26 @@
         var api = {
             submitRestaurantRatingAndReview: submitRestaurantRatingAndReview,
             findRestaurantById : findRestaurantById,
-            createRestaurant : createRestaurant
+            createRestaurant : createRestaurant,
+            findAllRestaurants : findAllRestaurants,
+            deleteReview : deleteReview
         }
         return api;
 
+        function deleteReview(reviewId) {
+            var url = "/api/review/"+reviewId;
+            return $http.delete(url)
+                .then(function (response) {
+                return response.data;
+            })
+        }
+
+        function findAllRestaurants() {
+            var url = "/api/restaurant";
+            return $http.get(url).then(function (response) {
+                return response.data;
+            })
+        }
 
 
         function createRestaurant(restObj) {

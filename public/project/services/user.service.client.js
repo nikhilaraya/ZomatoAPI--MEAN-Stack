@@ -20,9 +20,36 @@
             submitRatingAndReview : submitRatingAndReview,
             followUser : followUser,
             isFollowingUser : isFollowingUser,
-            unFollowUser : unFollowUser
+            unFollowUser : unFollowUser,
+            deleteUser : deleteUser,
+            findAllUsers : findAllUsers,
+            updateUser : updateUser
         }
         return api;
+
+        function updateUser(userId,user) {
+            var url = "/api/user/"+userId+"/updateUser";
+            return $http.put(url,user).then(function (response) {
+                return response.data;
+            })
+        }
+
+        function findAllUsers() {
+            var url = "/api/admin/findAllUsers";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function deleteUser(userId) {
+            var url = "/api/user/"+userId;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                })
+
+        }
 
         function unFollowUser(loggedInUserId,unfollowId) {
             var url = "/api/user/"+loggedInUserId+"/unfollow/"+unfollowId;

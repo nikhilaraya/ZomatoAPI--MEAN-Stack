@@ -14,6 +14,7 @@
         model.deleteUser = deleteUser;
         model.logout = logout;
 
+
         function init() {
             userService
                 .findUserById(model.userId)
@@ -26,9 +27,10 @@
 
         init();
 
-        function deleteUser(user) {
+        function deleteUser() {
+            console.log("inside"+model.userId);
             userService
-                .deleteUser(user._id)
+                .deleteUser(model.userId)
                 .then(function () {
                     $location.url("/");
                 }, function () {

@@ -1,0 +1,32 @@
+<div>
+<div class="alert alert-success">{{model.message}}</div>
+    <input type="text" placeholder="aliceWonderland" ng-model="model.username">
+    <input type="password" placeholder="Wonderland" ng-model="model.password">
+    <select ng-model="model.role">
+        <option value="">Select Role</option>
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+    </select>
+    <a ng-click="model.createUser(model.username,model.password,model.role)">Create User</a>
+</div>
+
+<div ng-if="model.displayParticularUser">
+    <input type="text"  ng-model="model.user.username">
+    <input type="text" ng-model="model.user.firstname">
+    <input type="text"  ng-model="model.user.lastname">
+    <select ng-model="model.user.role">
+        <option value="">Select Role</option>
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+    </select>
+    <a ng-click="model.updateUser(model.user._id,model.user)">Update</a>
+</div>
+<div ng-repeat="v in model.users">
+    <h3>{{v.username}}</h3>
+    <h3>{{v.firstname}}</h3>
+    <h3>{{v.lastname}}</h3>
+    <h3>{{v.role}}</h3>
+    <h3>{{v.email}}</h3>
+    <a ng-click="model.deleteUser(v._id)">Delete</a>
+    <a ng-click="model.displayUser(v._id)">Update</a>
+</div>

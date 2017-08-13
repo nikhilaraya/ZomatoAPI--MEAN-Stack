@@ -9,7 +9,25 @@ app.put('/api/user/:userId/restaurant/:restId/rateAndReviewSubmit',addRatingAndR
 app.get('/api/restaurant/:restId', findRestaurantById);
 app.post('/api/restaurant',createRestaurant);
 app.get('/api/restaurant/:restId/ratingAndReview',getRatingAndReviews);
+app.get('/api/restaurant',getAllRestaurants);
+app.delete('/api/review/:reviewId',deleteReview);
 
+function deleteReview(req,res) {
+    var reviewId = req.params.reviewId;
+    restaurantModel
+        .deleteReview(reviewId)
+        .then(function (status) {
+            res.send(status);
+        });
+}
+
+function getAllRestaurants(req,res) {
+    restaurantModel
+        .getAllRestaurants()
+        .then(function (restaurants) {
+        res.json(restaurants);
+    })
+}
 function getRatingAndReviews(req,res) {
     var restId = req.params.restId;
     restaurantModel.getRatingAndReviews(restId).then(function (restaurant) {

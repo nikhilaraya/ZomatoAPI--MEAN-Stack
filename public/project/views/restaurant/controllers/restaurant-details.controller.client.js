@@ -18,6 +18,8 @@
         model.addToFavorites = addToFavorites;
         model.removeFavorite = removeFavorite;
         model.submitRatingAndReview = submitRatingAndReview;
+        var restaurantRatingAndReviews = [];
+
 
         function init() {
             homeService
@@ -35,17 +37,31 @@
                     else {
                         model.isNotFavorite = true;
                     }
-                })
+                });
+            displayRestaurantReviews();
+        }
+        init();
+
+        function displayRestaurantReviews() {
             restaurantService
                 .findRestaurantById(restId)
                 .then(function (found) {
-                    model.restaurantRatingAndReviews = [];
-                    model.restaurantRatingAndReviews = found.rateAndReview;
+                    model.rateReviews = found.rateAndReview;
                 });
         }
-        init();
-        
 
+        // userService
+        //     .findUserById(model.userId)
+        //     .then(function (user) {
+        //         for(var f in user.followers) {
+        //             userService
+        //                 .findUserById(user.followers[f])
+        //                 .then(function (user) {
+        //                     followers.push(user);
+        //                 });
+        //         }
+        //     });
+        // model.followers = followers;
 
 
         function submitRatingAndReview() {
@@ -114,9 +130,8 @@
 
         function submitUserReviews(rateReviewObj) {
             userService
-                .submitRatingAndReview(model.userId,rateReviewObj).then(function (response) {
-
-            });
+                .submitRatingAndReview(model.userId,rateReviewObj);
+            displayRestaurantReviews();
         }
         function addToFavorites() {
             userService

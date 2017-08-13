@@ -1,0 +1,7 @@
+<div ng-repeat="i in model.displayReviews">
+    {{i.restName}}
+    {{i.username}}
+    {{i.rating}}
+    {{i.review}}
+    <a ng-click="model.deleteReview(i.reviewId)">Delete</a>
+</div>

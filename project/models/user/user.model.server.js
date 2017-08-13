@@ -17,8 +17,32 @@ userModel.addRateAndReview = addRateAndReview;
 userModel.followUser = followUser;
 userModel.isFollowingUser = isFollowingUser;
 userModel.unFollowUser = unFollowUser;
+userModel.deleteUser = deleteUser;
+userModel.findAllUsers = findAllUsers;
+userModel.updateUser = updateUser;
+userModel.deleteUserFromFollowers = deleteUserFromFollowers;
 
 module.exports = userModel;
+
+function deleteUserFromFollowers(userId) {
+    return userModel.update({},{$pull: {follows: userId}},{multi:true});
+}
+
+function updateUser(userId,user) {
+    delete user._id;
+    delete user.password;
+    return userModel.update({_id:userId},{$set : {username: user.username,
+                                                    firstname:user.firstname,
+                                                    lastname:user.lastname,
+                                                    role:user.role}});
+}
+
+function findAllUsers() {
+    return userModel.find();
+}
+function deleteUser(userId) {
+    return userModel.remove({_id: userId});
+}
 
 function unFollowUser(userId, unfollowId) {
     return userModel.update({_id: userId},{$pullAll:{follows: [unfollowId]}});

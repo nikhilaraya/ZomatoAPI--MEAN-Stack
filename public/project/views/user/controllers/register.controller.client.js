@@ -25,6 +25,7 @@
                             email: user.email,
                             password: user.password
                         }
+                        console.log(newUser);
                         return userService
                             .registerUser(newUser)
                             .then(function (user) {

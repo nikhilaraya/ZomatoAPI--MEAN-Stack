@@ -57,6 +57,20 @@
                     loggedInUser : loggedInUser
                 }
             })
+            .when("/admin/users",{
+                templateUrl:'views/admin/templates/admin-users.view.client.html',
+                controller: 'adminUserController',
+                controllerAs: 'model'
+            })
+            .when("/admin",{
+                templateUrl:'views/admin/templates/admin-options.view.client.html'
+            })
+            .when("/admin/restaurants",{
+                templateUrl:'views/admin/templates/admin-restaurants.view.client.html',
+                controller: 'adminRestaurantController',
+                controllerAs: 'model'
+            })
+
     }
 
     function loggedInUser(userService,$q,$location) {

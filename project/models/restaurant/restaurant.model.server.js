@@ -11,10 +11,20 @@ module.exports = restaurantModel;
 restaurantModel.addRatingAndReview = addRatingAndReview;
 restaurantModel.findRestaurantById = findRestaurantById;
 restaurantModel.createRestaurant = createRestaurant;
-restaurantModel.getRatingAndReviews = getRatingAndReviews;
+restaurantModel.getAllRestaurants = getAllRestaurants;
+restaurantModel.deleteReview = deleteReview;
+restaurantModel.deleteUserReview = deleteUserReview;
 
-function getRatingAndReviews(restId) {
-    //return restaurantModel.find
+function deleteUserReview(userId) {
+    return restaurantModel.update({},{$pull: {rateAndReview:{userId: userId}}},{multi:true});
+}
+
+function deleteReview(reviewId) {
+    return restaurantModel.update({},{$pull: {rateAndReview:{_id: reviewId}}},{multi:true});
+}
+
+function getAllRestaurants() {
+    return restaurantModel.find();
 }
 
 function createRestaurant(restObj) {
