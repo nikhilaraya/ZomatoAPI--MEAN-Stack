@@ -12,7 +12,12 @@
 
             model.searchBasedOnLocation = searchBasedOnLocation;
             model.getRestaurantDetails = getRestaurantDetails;
+            model.getRestaurantReviewsFromApi = getRestaurantReviewsFromApi;
 
+            function getRestaurantReviewsFromApi(restaurantId) {
+                var url = 'https://developers.zomato.com/api/v2.1/reviews?res_id='+restaurantId+'&apikey=70812261f149b635898123ae618d05ca';
+                return $http.get(url);
+            }
         function getRestaurantDetails(restaurantId) {
             var url = 'https://developers.zomato.com/api/v2.1/restaurant?res_id='+restaurantId+'&apikey=70812261f149b635898123ae618d05ca';
             return $http.get(url);

@@ -26,7 +26,16 @@
                 .getRestaurantDetails(restId)
                 .then(function (response) {
                     model.restaurant = response.data;
-            })
+            });
+
+            homeService
+                .getRestaurantReviewsFromApi(restId)
+                .then(function (response) {
+                    console.log(response.data);
+                    model.restaurantApiReviews = response.data.user_reviews;
+                    console.log(response.data.user_reviews);
+                });
+
             userService
                 .isFavoriteRestaurant(model.userId,restId)
                 .then(function (liked) {

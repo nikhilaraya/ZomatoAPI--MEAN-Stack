@@ -1,7 +1,18 @@
-<div ng-repeat="i in model.displayReviews">
-    {{i.restName}}
-    {{i.username}}
-    {{i.rating}}
-    {{i.review}}
-    <a ng-click="model.deleteReview(i.reviewId)">Delete</a>
+<div class="container-fluid">
+<table class="table table-responsive">
+    <thead>
+    <th>Restaurant Name</th>
+    <th>Username</th>
+    <th>Rating</th>
+    <th>Review</th>
+    <th>Delete</th>
+    </thead>
+    <tbody ng-repeat="i in model.displayReviews">
+    <td>{{i.restName}}</td>
+    <td>{{i.username}}</td>
+    <td>{{i.rating}}</td>
+    <td>{{i.review}}</td>
+    <td><a class="btn btn-danger" ng-click="model.deleteReview(i.reviewId)">Delete</a></td>
+    </tbody>
+</table>
 </div>

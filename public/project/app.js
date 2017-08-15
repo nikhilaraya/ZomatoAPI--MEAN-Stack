@@ -3,5 +3,5 @@
  */
 (function () {
     angular
-        .module("Foood", ["ngRoute"]);
+        .module("Foood", ["ngRoute","ngMap"]);
 })();
