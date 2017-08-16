@@ -16,6 +16,21 @@
 </nav>
 
 <div class="container-fluid restaurantListPadding">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-xs-12 col-md-8">
+            <div class="row">
+                <div class="col-xs-10 searchPadding">
+                    <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control">
+                </div>
+                <div class="col-xs-2 searchBtnPadding">
+                    <a class="btn btn-primary float-left addYellow" ng-click="model.searchBasedOnLocation(searchText)">
+                        <span class="addYellow"><span class="glyphicon glyphicon-search"></span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
 <div class="" ng-repeat="restaurant in model.resta">
 <div class="panel panel-default">

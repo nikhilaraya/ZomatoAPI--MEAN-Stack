@@ -14,7 +14,8 @@ var userSchema = mongoose.Schema({
         {
             restId: {type: String},
             rating: {type: Number},
-            review:{type:String}
+            review:{type:String},
+            restName:{type:String}
         }
     ],
     facebook: {

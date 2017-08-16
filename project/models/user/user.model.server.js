@@ -61,7 +61,8 @@ function addRateAndReview(rateReviewObj) {
     var rateReview ={
         restId : rateReviewObj.restId,
         rating : rateReviewObj.rating,
-        review : rateReviewObj.review
+        review : rateReviewObj.review,
+        restName : rateReviewObj.restname
     }
     return userModel
         .update({_id: rateReviewObj.userId}, {$push: {rateAndReviewRestaurant: rateReview}});
@@ -72,7 +73,7 @@ function removeFavorite(userId,restId) {
 }
 
 function isFavoriteRestaurant(userId,restId) {
-    return userModel.findOne({_id:userId,favorites: {$in: [restId]}});
+    return userModel.findOne({_id:userId, favorites:  {$in: [restId]}});
 }
 function addToFavorites(userId,restId) {
     return userModel.update({_id: userId}, {$push:{favorites: restId}});

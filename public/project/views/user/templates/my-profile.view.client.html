@@ -15,16 +15,24 @@
     </div>
 </nav>
 <div class="container-fluid adminReviewsPadding">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-xs-12 col-md-8">
+            <div class="row">
+                <div class="col-xs-10 searchPadding">
+                    <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control">
+                </div>
+                <div class="col-xs-2 searchBtnPadding">
+                    <a class="btn btn-primary float-left addYellow" ng-click="model.searchBasedOnLocation(searchText)">
+                        <span class="addYellow"><span class="glyphicon glyphicon-search"></span></span>
+                    </a>
+                </div>
+            </div>
+    </div>
+    </div>
 
     <div class="container-fluid">
 
-        <div>
-            <h3>{{model.user.username}}</h3>
-            <span>
-                <a class="btn btn-danger" ng-show="model.loggedInId" ng-if="model.unFollow" ng-click="model.followUser()"><span class="fa fa-smile-o votesSize"></span>Follow</a>
-                <a class="btn btn-danger" ng-show="model.loggedInId" ng-if="!model.unFollow" ng-click="model.unFollowUser()"><span class="fa fa-frown-o votesSize"></span>UnFollow</a>
-        </span>
-        </div>
         <ul class="nav nav-tabs nav-justified">
             <li class="active"><a data-toggle="pill" href data-target="#Reviews">Reviews</a></li>
             <li><a data-toggle="pill" href data-target="#Follows">Follows</a></li>
@@ -33,7 +41,7 @@
 
         <div class="tab-content">
             <div id="Reviews" class="tab-pane fade in active">
-                <h3 ng-show="model.user.rateAndReviewRestaurant.length<1">No reviews have been given by this user</h3>
+                <h3 ng-show="model.user.rateAndReviewRestaurant.length<1">No reviews have been given by you</h3>
                 <div ng-show="model.user.rateAndReviewRestaurant.length>0">
                     <div class="well panelRemoveColor">
                         <div ng-repeat="i in model.user.rateAndReviewRestaurant">
@@ -47,7 +55,7 @@
             </div>
             <div id="Follows" class="tab-pane fade">
                 <div class="well panelRemoveColor">
-                <h3 ng-show="model.followsArray.length<1">User has not followed any other user</h3>
+                <h3 ng-show="model.followsArray.length<1">You have not followed any user</h3>
                 <div ng-show="model.followsArray.length>0">
                        <div ng-repeat="i in model.followsArray">
                             <a href="#!/user/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.username}}</a>
@@ -69,6 +77,9 @@
             </div>
         </div>
     </div>
+    <div ><a href="#!/profile">Edit Profile</a></div>
+    <a ng-show="model.user.role === 'Admin'" class="btn btn-primary bottomMargin form-control" href="#!/admin">Admin Operations</a>
+</div>
 
 
 

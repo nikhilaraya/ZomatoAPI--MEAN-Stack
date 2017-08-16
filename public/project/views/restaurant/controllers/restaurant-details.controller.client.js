@@ -20,7 +20,6 @@
         model.submitRatingAndReview = submitRatingAndReview;
         var restaurantRatingAndReviews = [];
 
-
         function init() {
             homeService
                 .getRestaurantDetails(restId)
@@ -79,7 +78,9 @@
                 rating: model.rating,
                 review: model.review,
                 restId: restId,
-                userId: model.userId
+                userId: model.userId,
+                username: loggedInUser.username,
+                restname : model.restaurant.name
             }
 
             restaurantService.findRestaurantById(restId)
@@ -144,7 +145,7 @@
         }
         function addToFavorites() {
             userService
-                .addToFavorites(model.userId,restId)
+                .addToFavorites(model.userId,restId,model.restaurant.name)
                 .then(function () {
                    model.isNotFavorite = false;
                 })

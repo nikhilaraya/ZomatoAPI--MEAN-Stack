@@ -29,7 +29,7 @@
                         return userService
                             .registerUser(newUser)
                             .then(function (user) {
-                            $location.url('/profile');
+                            $location.url('/my-profile');
                         },function () {
                             model.message ="could not register";
                         })

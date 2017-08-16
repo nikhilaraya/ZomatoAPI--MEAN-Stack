@@ -155,6 +155,9 @@ li.bt-nn {
 .panelText{
     color: black;
 }
+.ratingSizeInReviews{
+    font-size: 10px;
+}
 .gap-right {
     margin-right: 10px;
 }

@@ -9,6 +9,7 @@ var restaurantSchema = mongoose.Schema({
     imageUrl: {type: String},
     rateAndReview:[{
         userId: {type: String},
+        username: {type: String},
         rating: {type: Number},
         review: {type:String}
     }]

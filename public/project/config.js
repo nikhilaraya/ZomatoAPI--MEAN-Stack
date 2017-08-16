@@ -31,6 +31,14 @@
                     currentUser: checkLoggedIn
                 }
             })
+            .when("/my-profile",{
+                templateUrl:'views/user/templates/my-profile.view.client.html',
+                controller: 'myProfileController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
             .when("/search/:basedLocation",{
                 templateUrl:'views/home/templates/home.view.client.html',
                 controller: 'homeController',

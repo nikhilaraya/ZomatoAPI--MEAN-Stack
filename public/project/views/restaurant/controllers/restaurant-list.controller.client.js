@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("restaurantListController", restaurantListController);
 
-    function restaurantListController($location,homeService,$routeParams) {
+    function restaurantListController($location,homeService,$routeParams,$scope) {
         var model = this;
 
         function init() {

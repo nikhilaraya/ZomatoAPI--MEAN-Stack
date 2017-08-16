@@ -41,7 +41,8 @@ function addRatingAndReview(userId,rateAndReviewObj) {
     var rateAndReview = {
         userId : userId,
         rating : rateAndReviewObj.rating,
-        review : rateAndReviewObj.review
+        review : rateAndReviewObj.review,
+        username : rateAndReviewObj.username
     }
     return restaurantModel
         .update({restId: rateAndReviewObj.restId}, {$push: {rateAndReview: rateAndReview}});

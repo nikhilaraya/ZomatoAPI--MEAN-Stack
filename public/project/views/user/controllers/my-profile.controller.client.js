@@ -4,38 +4,37 @@
 (function () {
     angular
         .module("Foood")
-        .controller("userProfileController", userProfileController);
+        .controller("myProfileController", myProfileController);
     
-    function userProfileController($location,$routeParams,userService,loggedInUser,restaurantService) {
+    function myProfileController($location,$routeParams,userService,currentUser,restaurantService,$scope,homeService) {
         var model = this;
-        model.userId = $routeParams.userId;
-        model.loggedInId = loggedInUser._id;
+        model.loggedInId = currentUser._id;
         model.followUser = followUser;
         model.unFollowUser = unFollowUser;
         model.followsArray = [];
         model.favRestArray = [];
 
         function init() {
-            userService.findUserById(model.userId).then(function (user) {
+            userService.findUserById(currentUser._id).then(function (user) {
                 model.user = user;
                 getFollowDetails(user);
                 getFavoriteDetails(user);
             });
 
-            userService
-                .isFollowingUser(model.loggedInId,model.userId)
-                .then(function (followed) {
-                    if(followed === 'true')
-                    {
-                        console.log("dffffffffffffffff");
-                        model.unFollow = false;
-                    }
-                    else {
-                        console.log("dffffffffffffffffeeeeeeeeee");
-                        model.unFollow = true;
-                    }
-                })
         }init();
+
+        model.searchBasedOnLocation = searchBasedOnLocation;
+        $scope.details = {};
+
+        function searchBasedOnLocation() {
+
+            var latitude = $scope.details.geometry.location.lat();
+            var longitude = $scope.details.geometry.location.lng();
+
+            homeService.searchBasedOnLocation(latitude,longitude).then(function (response) {
+                $location.url("/"+latitude+"/restaurant/"+longitude);
+            })
+        }
 
         function getFollowDetails(user) {
             var followUsernames = [];
@@ -43,7 +42,7 @@
             {
                 userService.findUserById(model.user.follows[f])
                     .then(function (user) {
-                        if(user._id === loggedInUser._id)
+                        if(user._id === currentUser._id)
                         {
 
                         }

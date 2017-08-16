@@ -1,50 +1,28 @@
-<nav class="navbar navbar-default navbar-fixed-top headerColor">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width">
-            <span class="navbar-brand">
+            <span class="navbar-brand navbarHeading">
                 Login
             </span>
             <p class="navbar-text pull-right">
                 <a href="" class="navbar-link">
-                <span class="glyphicon glyphicon-ok">
+                <span class="navbar-brand navbarHeading">
+                    <a href="#!/login">Login</a>
+                    <a href="#!/register">Register</a>
                 </span>
                 </a>
             </p>
         </div>
     </div>
 </nav>
-<header>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active" style="background-image: url('./images/slideImage1.jpg')">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>First Slide</h3>
-                    <p>This is a description for the first slide.</p>
-                </div>
-            </div>
-            <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('./images/slideImage2.jpg')">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Second Slide</h3>
-                    <p>This is a description for the second slide.</p>
-                </div>
-            </div>
-            <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('./images/slideImage3.jpg')">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Third Slide</h3>
-                    <p>This is a description for the third slide.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<ul class="slideshow">
+    <li>
+        <h3></h3>
+        <span></span> </li>
+    <li> <span></span> </li>
+    <li> <span></span> </li>
+    <li> <span></span> </li>
+</ul>
 
 
             <!-- Left and right controls -->
@@ -52,7 +30,6 @@
     <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control searchBar">
     <span class="float-left"><a ng-click="model.searchBasedOnLocation(searchText)">search</a></span>
 </div>
-    <a href="#!/login">Login</a>
-    <a href="#!/register">Register</a>
+
 
 

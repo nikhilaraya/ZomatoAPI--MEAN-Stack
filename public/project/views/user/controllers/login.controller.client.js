@@ -21,7 +21,7 @@
                 .then(function (user) {
                     if(user!==null)
                     {
-                        $location.url('/profile')
+                        $location.url('/my-profile')
                     }
                     else
                     {

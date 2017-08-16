@@ -62,11 +62,18 @@
             <hr>
         </div>
     </div>
-
-<div ng-repeat="mm in model.rateReviews">
-    <a href="#!/user/{{mm.userId}}">{{mm.userId}}</a>
-    <h6>{{mm.review}}</h6>
-    <h6>{{mm.rating}}</h6>
+<div ng-show="model.userId">
+    <div ng-show="model.rateReviews.length>0">
+        <div class="well panelRemoveColor">
+            <div class="labelPadding"><h4>Reviews given by website users</h4></div>
+        <div ng-repeat="mm in model.rateReviews">
+            <a href="#!/user/{{mm.userId}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{mm.username}}</a>
+                <span class="label label-success ratingSizeInReviews">{{mm.rating}}/5</span>
+            <h5><i>{{mm.review}}</i></h5>
+            <hr>
+         </div>
+    </div>
+</div>
 </div>
 <div ng-show="model.userId">
     <div class="well">

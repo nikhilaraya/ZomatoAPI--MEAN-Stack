@@ -82,6 +82,7 @@
         }
 
         function removeFavorite(userId,restId) {
+            console.log("nnn");
             var url = "/api/user/"+userId+"/restaurant/"+restId+"/removeFavorite";
             return $http.put(url)
                 .then(function (response) {
@@ -97,7 +98,8 @@
                 })
         }
 
-        function addToFavorites(userId,restId) {
+        function addToFavorites(userId,restId,restName) {
+            console.log("in addToFav"+userId+restId+restName);
             var url = "/api/user/"+userId+"/restaurant/"+restId+"/addToFavorites";
             return $http.put(url)
                 .then(function (response) {
