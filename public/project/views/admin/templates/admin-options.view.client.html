@@ -1,35 +1,37 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="" class="navbar-text pull-left">
-          <span class="glyphicon glyphicon-chevron-left">
+            <a href="#!/profile" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand">Operations</span>
+            <span class="navbar-brand headerColor">Operations</span>
             <p class="navbar-text pull-right">
-                <a  class="navbar-link">
-                    <span class="glyphicon glyphicon-ok">
+                <a href="#!/" class="navbar-link">
+                    <span class="glyphicon glyphicon-home headerColor">
                     </span>
                 </a>
             </p>
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container-fluid adminOptionsbackground adminOptionsPadding">
+    <div class="container-fluid">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-xs-12 col-md-8">
-            <a class="btn btn-block btn-danger" href="#!/admin/users">Users</a>
-            <a class="btn btn-block btn-danger" href="#!/admin/restaurants">Restaurants</a>
+            <a class="btn btn-block btn-danger addYellow" href="#!/admin/users">Click here to manage users</a>
+            <a class="btn btn-block btn-danger addYellow" href="#!/admin/restaurants">Click here to manage restaurants</a>
         </div>
     </div>
+    </div>
 </div>
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width">
             <p class="navbar-text pull-right">
                 <a href="" class="navbar-link">
-                    <span class="glyphicon glyphicon-user">
+                    <span ng-click="model.logout()" class="glyphicon glyphicon-off headerColor">
                     </span>
                 </a>
             </p>

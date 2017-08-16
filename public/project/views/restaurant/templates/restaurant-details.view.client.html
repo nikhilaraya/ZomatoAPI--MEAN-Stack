@@ -1,41 +1,51 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="" class="navbar-text pull-left">
-          <span class="glyphicon glyphicon-chevron-left">
+            <a href="#!/login" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand">Details</span>
+            <span class="navbar-brand headerColor">Details</span>
             <p class="navbar-text pull-right">
                 <a  class="navbar-link">
-                    <span class="glyphicon glyphicon-ok">
-                    </span>
+
                 </a>
             </p>
         </div>
     </div>
 </nav>
+<div class="container-fluid restaurantDetailsPadding">
 <div class="container-fluid">
 
     <!-- Portfolio Item Heading -->
 
 
     <!-- Portfolio Item Row -->
-    <div class="well">
+    <div class="well panelRemoveColor">
     <div class="row">
         <div class="col-md-8">
-            <h1 >{{model.restaurant.name}}</h1>
+            <h1 >{{model.restaurant.name}}
+                </h1>
+            <div class="labelPadding">
+                 <small class="label label-danger ratingSize">{{model.restaurant.cuisine}}</small>
+                 <span class="label label-success ratingSize">{{model.restaurant.user_rating.aggregate_rating}}/5</span>
+                 <span class="votes label label-success ratingSize">{{model.restaurant.user_rating.votes}} votes</span>
+
+            </div>
             <div>
-                 <small class="label label-danger">{{model.restaurant.cuisine}}</small>
-                 <span class="votes label label-success">{{model.restaurant.user_rating.votes}} votes</span>
+                <small>
+                    <a ng-show="model.userId" ng-if="model.isNotFavorite" class="btn btn-danger" ng-click="model.addToFavorites()"><span class="glyphicon glyphicon-thumbs-up votesSize"></span>Add to Favorites</a>
+                    <a ng-show="model.userId" ng-if="!model.isNotFavorite" class="btn btn-danger" ng-click="model.removeFavorite()"><span class="glyphicon glyphicon-thumbs-down votesSize"></span>Remove From Favorites</a>
+                </small>
             </div>
             <h3>Address</h3>
-            <div>{{model.restaurant.location.address}}</div>
-            <h5><a href="{{model.restaurant.url}}">Website</a></h5>
-            <small>
-                <a ng-show="model.userId" ng-if="model.isNotFavorite" class="btn btn-danger" ng-click="model.addToFavorites()">Add to Favorites</a>
-                <a ng-show="model.userId" ng-if="!model.isNotFavorite" class="btn btn-danger" ng-click="model.removeFavorite()">Remove From Favorites</a>
-            </small>
+            <div class="labelPadding">{{model.restaurant.location.address}}</div>
+            <div class="btn-group btn-group-justified btnGroupPadding">
+                <a href="{{model.restaurant.url}}" class="btn btn-block btn-default btnGroupStyling removeRight"><span class="glyphicon glyphicon-tasks votesSize"></span>Go to Website</a>
+                <a href="{{model.restaurant.menu_url}}" class="btn btn-block btn-default btnGroupStyling removeRight"><span class="glyphicon glyphicon-cutlery votesSize"></span>Get Menu</a>
+                <a href="{{model.restaurant.photos_url}}" class="btn btn-block btn-default btnGroupStyling"><span class="glyphicon glyphicon-camera votesSize"></span>Get Photos</a>
+            </div>
+
         </div>
         <div class="col-md-4">
             <ng-map center="{{model.restaurant.location.address}}">
@@ -44,8 +54,9 @@
         </div>
     </div>
     </div>
-    <h3 class="my-3">Top Comments</h3>
-    <div class="well">
+
+    <div class="well" ng-show="model.restaurantApiReviews.review.length>0">
+        <h3 class="my-3">Top Comments</h3>
         <div ng-repeat="reviewApi in model.restaurantApiReviews">
             <p><i>{{reviewApi.review.review_text}}</i></p>
             <hr>
@@ -79,7 +90,7 @@
     <a ng-click="model.submitRatingAndReview()">Submit</a-->
 </div>
 </div>
-
+</div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header header-width">

@@ -1,48 +1,46 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
-        <div class="navbar-header header-width">
-            <span class="navbar-brand">
+        <div class="navbar-header header-width noArrow">
+            <span class="navbar-brand navbarHeading">
                 Login
             </span>
             <p class="navbar-text pull-right">
                 <a href="" class="navbar-link">
-                <span class="glyphicon glyphicon-ok">
-                </span>
-                </a>
-            </p>
-        </div>
-    </div>
-</nav>
-<div class="container-fluid">
-    <div class="col-md-2"></div>
-    <div class="col-xs-12 col-md-8">
-        <label for="username">Username</label>
-        <input type="text"
-               id="username"
-               ng-model="username"
-               class="form-control">
-        <label for="password">Password</label>
-        <input type="password"
-               id="password"
-               ng-model="password"
-               class="form-control">
-        <a class="btn btn-block btn-primary" ng-click="model.login(username,password)">Login</a>
-        <a class="btn btn-block btn-primary" href="#!/register">Register</a>
-        <a href="/auth/facebook" class="btn btn-primary btn-block">
-            <span class="fa fa-facebook"></span>
-            Facebook
-        </a>
-    </div>
-</div>
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header header-width">
-            <p class="navbar-text pull-right">
-                <a href="" class="navbar-link">
-                    <span class="glyphicon glyphicon-user">
+                    <span class="glyphicon glyphicon-home headerColor">
                     </span>
                 </a>
             </p>
         </div>
     </div>
 </nav>
+<div class="container-fluid loginPadding loginbackground">
+    <form name="loginForm" novalidate>
+    <div class="col-md-3"></div>
+    <div class="col-xs-12 col-md-6">
+        <div ng-show="model.message"
+             class="alert alert-info">{{model.message}}</div>
+        <label for="username" class="addYellow">Username</label>
+        <input type="text"
+               id="username"
+               name="username"
+               ng-model="username"
+               class="form-control" required/>
+        <div ng-show="loginForm.username.$invalid && loginForm.$submitted"
+             class="alert alert-danger">Username is required</div>
+        <label for="password" class="yellowText">Password</label>
+        <input type="password"
+               id="password"
+               name="password"
+               ng-model="password"
+               class="form-control" required/>
+        <div ng-show="loginForm.password.$invalid && loginForm.$submitted"
+             class="alert alert-danger">Password is required</div>
+        <input type="submit" value="Login" class="btn btn-block btn-primary addYellow" ng-click="model.login(username,password)"></input>
+        <a class="btn btn-block btn-primary addYellow" href="#!/register">Register</a>
+        <a href="/auth/facebook" class="btn btn-primary btn-block addYellow">
+            <span class="fa fa-facebook"></span>
+            Facebook
+        </a>
+    </div>
+    </form>
+</div>

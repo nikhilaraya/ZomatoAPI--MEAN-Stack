@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("profileController", profileController);
 
-    function profileController($location,$routeParams,currentUser,userService) {
+    function profileController($location,$routeParams,currentUser,userService,$scope,homeService) {
 
         var model = this;
         model.userId = currentUser._id;
@@ -14,8 +14,8 @@
         model.deleteUser = deleteUser;
         model.logout = logout;
 
-
         function init() {
+
             userService
                 .findUserById(model.userId)
                 .then(function (user) {
@@ -26,6 +26,19 @@
         }
 
         init();
+
+        model.searchBasedOnLocation = searchBasedOnLocation;
+        $scope.details = {};
+
+        function searchBasedOnLocation() {
+
+            var latitude = $scope.details.geometry.location.lat();
+            var longitude = $scope.details.geometry.location.lng();
+
+            homeService.searchBasedOnLocation(latitude,longitude).then(function (response) {
+                $location.url("/"+latitude+"/restaurant/"+longitude);
+            })
+        }
 
         function deleteUser() {
             console.log("inside"+model.userId);
@@ -52,7 +65,7 @@
                 .then(function () {
                     $location.url("/login");
                 },function () {
-                    model.errorMsg = "You have not been logged out";
+                    model.error = "You have not been logged out";
                 });
         }
     }

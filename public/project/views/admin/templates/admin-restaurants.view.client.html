@@ -1,7 +1,25 @@
-<div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width mobile-header">
+            <a href="#!/admin" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
+          </span>
+            </a>
+            <span class="navbar-brand headerColor">Reviews Options</span>
+            <p class="navbar-text pull-right">
+                <a href="#!/" class="navbar-link">
+                    <span class="glyphicon glyphicon-home headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid adminReviewsPadding">
+    <div class="container-fluid">
 <table class="table table-responsive">
     <thead>
-    <th>Restaurant Name</th>
+    <th>Restaurant</th>
     <th>Username</th>
     <th>Rating</th>
     <th>Review</th>
@@ -12,7 +30,22 @@
     <td>{{i.username}}</td>
     <td>{{i.rating}}</td>
     <td>{{i.review}}</td>
-    <td><a class="btn btn-danger" ng-click="model.deleteReview(i.reviewId)">Delete</a></td>
+    <td><a class="" ng-click="model.deleteReview(i.reviewId)">
+        <span class="glyphicon glyphicon-trash glyphiconBlack">
+          </span></a></td>
     </tbody>
 </table>
+    </div>
 </div>
+<nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width">
+            <p class="navbar-text pull-right">
+                <a href="" class="navbar-link">
+                    <span ng-click="model.logout()" class="glyphicon glyphicon-off headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

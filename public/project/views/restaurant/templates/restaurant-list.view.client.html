@@ -1,29 +1,29 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="" class="navbar-text pull-left">
-          <span class="glyphicon glyphicon-chevron-left">
+            <a href="#!/login" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand">Search Results</span>
+            <span class="navbar-brand headerColor">Search Results</span>
             <p class="navbar-text pull-right">
                 <a  class="navbar-link">
-                    <span class="glyphicon glyphicon-ok">
-                    </span>
+
                 </a>
             </p>
         </div>
     </div>
 </nav>
 
-<div class="container">
+<div class="container-fluid restaurantListPadding">
+    <div class="container-fluid">
 <div class="" ng-repeat="restaurant in model.resta">
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <div class="pull-right label label-danger">{{restaurant.user_rating.aggregate_rating}}</div>
-        <div class="pull-right">{{restaurant.user_rating.votes}} votes</div>
+    <div class="panel-heading panelColor">
+        <div class="pull-right label label-danger ratingSize">{{restaurant.user_rating.aggregate_rating}}/5</div>
+        <div class="pull-right votesSize"><b>{{restaurant.user_rating.votes}}</b> votes</div>
         <h4>
-            <a href="#!/restaurant/{{restaurant.id}}">{{restaurant.name}}</a>
+            <a class="panelText" href="#!/restaurant/{{restaurant.id}}">{{restaurant.name}}</a>
         </h4>
     </div>
     <div class="panel-body">
@@ -32,14 +32,15 @@
                  alt="My Image"
                  class="img-responsive img-rounded pull-left gap-right img-width"/>
             <p class="float-left">
-                <div>Average cost for 2: {{restaurant.average_cost_for_two}}</div>
-                <div>cuisines: {{restaurant.cuisines}}</div>
-                <div>Locality: {{restaurant.location.locality_verbose}}</div>
+            <div><b>Average cost for 2:</b> {{restaurant.average_cost_for_two}}</div>
+            <div><b>cuisines:</b><span class="label label-default">{{restaurant.cuisines}}</span></div>
+            <div><b>Locality:</b> {{restaurant.location.locality_verbose}}</div>
             </p>
         </div>
     </div>
 </div>
 </div>
+    </div>
 </div>
 <!--div class="orders">
     <div class="container">
@@ -59,13 +60,11 @@
         </div>
     </div>
 </div-->
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width">
             <p class="navbar-text pull-right">
-                <a href="" class="navbar-link">
-                    <span class="glyphicon glyphicon-user">
-                    </span>
+                <a href="" class="navbar-link headerColor">
                 </a>
             </p>
         </div>

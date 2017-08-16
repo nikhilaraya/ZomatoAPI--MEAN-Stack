@@ -5,13 +5,105 @@ select.form-control {
 }
 
 body {
-    padding-top: 60px;
-    padding-bottom: 60px;
     font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+}
+.removeBorder{
+    border-bottom-width: 0px;
+ }
+
+.loginPadding{
+    padding-top: 130px;
+    padding-bottom:290px;
+}
+.navbarHeading{
+    color: #fed136 !important;
+}
+.addYellow{
+    border-color: black;
+    background-color: black;
+    color: #fed136;
+}
+.labelPadding{
+    padding-bottom: 10px;
+}
+.removeRight{
+    border-right-width: 0px;
+}
+.btnGroupStyling{
+    border-radius: 0px;
+    height: 50px;
+}
+.btnGroupPadding{
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.addBlack{
+    border-color: #fed136;
+    background-color: #fed136;
+    color: black;
+}
+.yellowText{
+    color:#fed136;
+}
+.loginbackground{
+    background-image: url("../images/login7.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.registerbackground{
+    background-image: url("../images/register9.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.adminOptionsbackground{
+    background-image: url("../images/register1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.noArrow{
+    padding-left:15px;
+}
+.headerColor{
+    background-color: black;
+    color: #fed136 !important;
+}
+.seachBox{
+    top:300px;
+    position: absolute;
+    left:450px;
+}
+.searchBar{
+    width: 500px;
+}
+.backgroundSizing{
+    background-size: cover;
+    width: 100%;
+    height:100%;
+}
+.mySlides {
+    display:none;
+}
+
+.bottomMargin{
+    margin-bottom: 5px;
 }
 
 .header-width{
     width: 100%;
+    height: 40px;
 }
 .orders {
     padding: 3em 0;
@@ -60,6 +152,9 @@ li.bt-nn {
     margin: 3em 0;
     text-align: right;
 }
+.panelText{
+    color: black;
+}
 .gap-right {
     margin-right: 10px;
 }
@@ -69,8 +164,84 @@ li.bt-nn {
 .votes{
     font-size: small;
 }
+.registerPadding{
+    padding-top: 70px;
+    padding-bottom: 85px;
+}
+.removeTopBorder{
+    border-top-width: 0px;
+}
+.profilePadding{
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.panelColor{
+    background-color: white !important;
+    border-bottom-width: 0px;
+}
+.panelRemoveColor{
+    background-color: white !important;
+}
+.restaurantDetailsPadding{
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+.ratingSize{
+    font-size: 15px;
+}
+.votesSize{
+    padding-right: 5px;
+}
+.restaurantListPadding{
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+.searchBtnPadding{
+    padding-left: 0px;
+}
+.adminOptionsPadding{
+    padding-top: 230px;
+    padding-bottom: 310px;
+}
+.adminUsersPadding{
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+.glyphiconBlack{
+    color: black;
+}
+.adminReviewsPadding{
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+.searchPadding{
+    padding-left: 50px;
+    padding-right: 0px;
+    padding-bottom: 30px;
+}
 @media only screen and (max-width: 768px) {
     .mobile-header{
         padding-left: 30px;
     }
+    .loginPadding{
+        padding-top: 200px;
+        padding-bottom:290px;
+    }
+    .registerPadding{
+        padding-top: 70px;
+        padding-bottom: 155px;
+    }
+    .profilePadding{
+        padding-top: 70px;
+        padding-bottom: 155px;
+    }
+    .adminOptionsPadding{
+        padding-top: 250px;
+        padding-bottom: 360px;
+    }
+    .adminUsersPadding{
+        padding-top: 70px;
+        padding-bottom: 30px;
+    }
+
 }

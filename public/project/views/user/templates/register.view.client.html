@@ -1,77 +1,97 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="" class="navbar-text pull-left">
-          <span class="glyphicon glyphicon-chevron-left">
+            <a href="#!/login" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand">Register</span>
+            <span class="navbar-brand headerColor">Register</span>
             <p class="navbar-text pull-right">
                 <a  class="navbar-link">
-                    <span class="glyphicon glyphicon-ok">
-                    </span>
+
                 </a>
             </p>
         </div>
     </div>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid registerPadding registerbackground">
     <div class="col-md-2"></div>
     <div class="col-xs-12 col-md-8">
-    <label for="username">Username</label>
+        <div ng-show="model.error"
+             class="alert alert-info">{{model.error}}</div>
+        <form name="registerForm" novalidate>
+    <label for="username" class="yellowText">Username</label>
     <input type="text"
            class="form-control"
            id="username"
+           name="username"
            ng-model="user.username"
-           placeholder="AliceWonderland">
-
-    <label for="firstname">First Name</label>
+           placeholder="AliceWonderland" required/>
+            <div ng-show="registerForm.username.$invalid && registerForm.$submitted"
+                 class="alert alert-danger">Username is required</div>
+            <label for="firstname" class="yellowText">First Name</label>
     <input type="text"
            class="form-control"
            id="firstname"
+           name="firstname"
            ng-model="user.firstname"
-           placeholder="Alice">
+           placeholder="Alice" required/>
+            <div ng-show="registerForm.firstname.$invalid && registerForm.$submitted"
+                 class="alert alert-danger">Firstname is required</div>
 
-    <label for="lastname">Last Name</label>
+    <label for="lastname" class="yellowText">Last Name</label>
     <input type="text"
            class="form-control"
            id="lastname"
+           name="lastname"
            ng-model="user.lastname"
-           placeholder="Wonderland">
+           placeholder="Wonderland" required/>
+            <div ng-show="registerForm.lastname.$invalid && registerForm.$submitted"
+                 class="alert alert-danger">Lastname is required</div>
 
-    <label for="email">Email</label>
+    <label for="email" class="yellowText">Email</label>
     <input type="email"
            class="form-control"
            id="email"
+           name="email"
            ng-model="user.email"
-           placeholder="alice@gmail.com">
+           placeholder="alice@gmail.com" required/>
+            <div ng-show="registerForm.email.$invalid && registerForm.$submitted"
+                 class="alert alert-danger">Email is required</div>
 
-    <label for="password">Password</label>
+    <label for="password" class="yellowText">Password</label>
     <input type="password"
+           name="firstPass"
            class="form-control"
            id="password"
            ng-model="user.password"
-           placeholder="alice@123">
-
-    <label for="password2">Re-Enter Password</label>
+           placeholder="alice@123" required/>
+            <div ng-show="registerForm.firstPass.$invalid && registerForm.$submitted"
+                 class="alert alert-danger">Password is required</div>
+    <label for="password2" class="yellowText">Re-Enter Password</label>
     <input type="password"
            class="form-control"
+           name="password2"
            id="password2"
            ng-model="user.password2"
-           placeholder="alice@123">
-
-    <a class="btn btn-danger btn-block"
-       ng-click="model.register(user)">Register</a>
+           placeholder="alice@123" required/>
+            <div ng-show="registerForm.password2.$invalid && registerForm.$submitted"
+                 class="alert alert-danger">Re-enter your password</div>
+            <div ng-if="registerForm.password2.$valid && registerForm.firstPass.$valid
+            && registerForm.firstPass.$viewValue!=registerForm.password2.$viewValue"
+                 class="alert alert-danger">Passwords do not match</div>
+    <input type="submit" value="Register" class="btn btn-danger btn-block bottomMargin addYellow"
+         ng-click="model.register(user)"/>
+            <a href="#!/login" class="form-control btn btn-danger addYellow">Cancel</a>
+        </form>
     </div>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width">
             <p class="navbar-text pull-right">
-                <a href="" class="navbar-link">
-                    <span class="glyphicon glyphicon-user">
-                    </span>
+                <a href="" class="navbar-link headerColor">
                 </a>
             </p>
         </div>

@@ -1,4 +1,37 @@
-<form>
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width noArrow">
+            <span class="navbar-brand navbarHeading">
+                Profile
+            </span>
+            <p class="navbar-text pull-right">
+                <a href="#!/" class="navbar-link">
+                    <span class="glyphicon glyphicon-home headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid profilePadding">
+    <div class="col-md-2"></div>
+    <div class="col-xs-12 col-md-8">
+        <div class="row">
+            <div class="col-xs-10 searchPadding">
+                <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control">
+            </div>
+            <div class="col-xs-2 searchBtnPadding">
+                <a class="btn btn-primary float-left addYellow" ng-click="model.searchBasedOnLocation(searchText)">
+                    <span class="addYellow"><span class="glyphicon glyphicon-search"></span></span>
+                </a>
+            </div>
+        </div>
+        <div ng-show="model.error"
+             class="alert alert-danger">{{model.error}}</div>
+        <div ng-show="model.message"
+             class="alert alert-info">{{model.message}}</div>
+
     <div class="form-group">
         <label for="username">Username</label>
         <input type="text"
@@ -31,11 +64,23 @@
                id="last-name"
                placeholder="Wonderland">
     </div>
-</form>
+
 <a ng-click="model.updateUser(model.user)"
    class="btn btn-success btn-block">Update</a>
 <a ng-click="model.deleteUser()"
-   class="btn btn-danger btn-block">Unregister</a>
-<a ng-show="model.user.role === 'Admin'" href="#!/admin">Admin</a>
-<a class="btn btn-danger  btn-block"
-   ng-click="model.logout()">Logout</a>
+   class="btn btn-danger btn-block bottomMargin">Unregister</a>
+<a ng-show="model.user.role === 'Admin'" class="btn btn-primary bottomMargin form-control" href="#!/admin">Admin Operations</a>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width">
+            <p class="navbar-text pull-right">
+                <a href="" class="navbar-link">
+                    <span ng-click="model.logout()" class="glyphicon glyphicon-off headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

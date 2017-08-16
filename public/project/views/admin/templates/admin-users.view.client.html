@@ -1,22 +1,21 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="" class="navbar-text pull-left">
-          <span class="glyphicon glyphicon-chevron-left">
+            <a href="#!/admin" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand">Manage Users</span>
+            <span class="navbar-brand headerColor">User Operations</span>
             <p class="navbar-text pull-right">
                 <a  class="navbar-link">
-                    <span class="glyphicon glyphicon-ok">
-                    </span>
+
                 </a>
             </p>
         </div>
     </div>
 </nav>
-
-<div class="container-fluid">
+<div class="container-fluid adminUsersPadding">
+    <div class="container-fluid">
     <div class="alert alert-success" ng-show="model.message">{{model.message}}</div>
     <div class="row">
         <div class="col-xs-12 col-md-3">
@@ -33,7 +32,7 @@
             </select>
         </div>
         <div class="col-xs-12 col-md-3">
-            <a class="btn btn-block btn-primary" ng-click="model.createUser(model.username,model.password,model.role)">Create User</a>
+            <a class="btn btn-block btn-primary addYellow" ng-click="model.createUser(model.username,model.password,model.role)">Create User</a>
         </div>
 </div>
 
@@ -61,6 +60,7 @@
 
 </div>
 <div >
+    <h3>User Details</h3>
     <table class="table table-responsive">
         <thead>
         <tr>
@@ -68,8 +68,8 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Role</th>
-            <th></th>
-            <th></th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
         </thead>
         <tbody>
@@ -78,24 +78,26 @@
             <td>{{v.firstname}}</td>
             <td>{{v.lastname}}</td>
             <td>{{v.role}}</td>
-            <td><a ng-click="model.deleteUser(v._id)">Delete</a></td>
-            <td><a ng-click="model.displayUser(v._id)">Update</a></td>
+            <td><a ng-click="model.deleteUser(v._id)">
+                <span class="glyphicon glyphicon-trash glyphiconBlack">
+          </span></a></td>
+            <td><a ng-click="model.displayUser(v._id)"><span class="glyphicon glyphicon-pencil glyphiconBlack">
+          </span></a></td>
         </tr>
         </tbody>
     </table>
 </div>
-
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    </div>
+</div>
+    <nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
         <div class="container-fluid">
             <div class="navbar-header header-width">
                 <p class="navbar-text pull-right">
                     <a href="" class="navbar-link">
-                    <span class="glyphicon glyphicon-user">
+                    <span ng-click="model.logout()" class="glyphicon glyphicon-off headerColor">
                     </span>
                     </a>
                 </p>
             </div>
         </div>
     </nav>
-
-</div>
