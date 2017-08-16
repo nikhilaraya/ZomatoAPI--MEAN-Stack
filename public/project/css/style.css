@@ -73,6 +73,9 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
 }
+.paddingRightHeader{
+    padding-right: 15px;
+}
 .noArrow{
     padding-left:15px;
 }
@@ -87,6 +90,9 @@ body {
 }
 .searchBar{
     width: 500px;
+}
+.profileSearch{
+    padding-right: 50px!important;
 }
 .backgroundSizing{
     background-size: cover;
@@ -223,6 +229,9 @@ li.bt-nn {
     padding-bottom: 30px;
 }
 @media only screen and (max-width: 768px) {
+    .seachBox{
+
+    }
     .mobile-header{
         padding-left: 30px;
     }
@@ -245,6 +254,14 @@ li.bt-nn {
     .adminUsersPadding{
         padding-top: 70px;
         padding-bottom: 30px;
+    }
+    .seachBox{
+        top:320px;
+        position: absolute;
+        left:50px;
+    }
+    .searchBar{
+        width: 300px;
     }
 
 }

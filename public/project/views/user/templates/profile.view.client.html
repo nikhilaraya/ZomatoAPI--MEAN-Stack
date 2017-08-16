@@ -17,15 +17,15 @@
 <div class="container-fluid profilePadding">
     <div class="col-md-2"></div>
     <div class="col-xs-12 col-md-8">
-        <div class="row">
-            <div class="col-xs-10 searchPadding">
-                <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control">
-            </div>
-            <div class="col-xs-2 searchBtnPadding">
-                <a class="btn btn-primary float-left addYellow" ng-click="model.searchBasedOnLocation(searchText)">
-                    <span class="addYellow"><span class="glyphicon glyphicon-search"></span></span>
-                </a>
-            </div>
+        <div class="row ">
+            <div class="input-group searchPadding profileSearch">
+                <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
+                <span class="input-group-addon">
+                            <a ng-click="model.searchBasedOnLocation(searchText)">
+                                 <span class="glyphicon glyphicon-search">
+                                 </span>
+                            </a>
+                        </span>
         </div>
         <div ng-show="model.error"
              class="alert alert-danger">{{model.error}}</div>

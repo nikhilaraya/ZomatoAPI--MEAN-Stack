@@ -1,16 +1,11 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
-        <div class="navbar-header header-width">
-            <span class="navbar-brand navbarHeading">
-                Login
-            </span>
+        <div class="navbar-header header-width mobile-header noArrow">
+
+            <span class="navbar-brand headerColor">FOod</span>
             <p class="navbar-text pull-right">
-                <a href="" class="navbar-link">
-                <span class="navbar-brand navbarHeading">
-                    <a href="#!/login">Login</a>
-                    <a href="#!/register">Register</a>
-                </span>
-                </a>
+                <a class="navbar-link headerColor paddingRightHeader" href="#!/login">Login</a>
+                <a class="navbar-link headerColor" href="#!/register">Register</a>
             </p>
         </div>
     </div>
@@ -27,8 +22,17 @@
 
             <!-- Left and right controls -->
 <div class="seachBox">
-    <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control searchBar">
-    <span class="float-left"><a ng-click="model.searchBasedOnLocation(searchText)">search</a></span>
+    <div class="input-group searchBar">
+        <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
+        <span class="input-group-addon">
+            <a ng-click="model.searchBasedOnLocation(searchText)">
+                <span class="glyphicon glyphicon-search">
+                </span>
+            </a>
+        </span>
+    </div>
+    <!--<input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control searchBar">-->
+    <!--<span class="float-left"><a ng-click="model.searchBasedOnLocation(searchText)">search</a></span>-->
 </div>
 
 

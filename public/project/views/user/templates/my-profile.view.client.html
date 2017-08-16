@@ -5,10 +5,10 @@
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand headerColor">User Profile</span>
+            <span class="navbar-brand headerColor">Profile</span>
             <p class="navbar-text pull-right">
-                <a  class="navbar-link">
-
+                <a href="#!/profile" class="navbar-link">
+                    <span class="glyphicon glyphicon-pencil addYellow"></span>
                 </a>
             </p>
         </div>
@@ -18,15 +18,23 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-xs-12 col-md-8">
-            <div class="row">
-                <div class="col-xs-10 searchPadding">
-                    <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control">
-                </div>
-                <div class="col-xs-2 searchBtnPadding">
-                    <a class="btn btn-primary float-left addYellow" ng-click="model.searchBasedOnLocation(searchText)">
-                        <span class="addYellow"><span class="glyphicon glyphicon-search"></span></span>
-                    </a>
-                </div>
+            <div class="row searchPadding">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
+                        <span class="input-group-addon">
+                            <a ng-click="model.searchBasedOnLocation(searchText)">
+                                 <span class="glyphicon glyphicon-search">
+                                 </span>
+                            </a>
+                        </span>
+                <!--<div class="col-xs-10 searchPadding">-->
+                    <!--<input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control">-->
+                <!--</div>-->
+                <!--<div class="col-xs-2 searchBtnPadding">-->
+                    <!--<a class="btn btn-primary float-left addYellow" ng-click="model.searchBasedOnLocation(searchText)">-->
+                        <!--<span class="addYellow"><span class="glyphicon glyphicon-search"></span></span>-->
+                    <!--</a>-->
+                <!--</div>-->
             </div>
     </div>
     </div>
@@ -77,7 +85,7 @@
             </div>
         </div>
     </div>
-    <div ><a href="#!/profile">Edit Profile</a></div>
+    <div >
     <a ng-show="model.user.role === 'Admin'" class="btn btn-primary bottomMargin form-control" href="#!/admin">Admin Operations</a>
 </div>
 
