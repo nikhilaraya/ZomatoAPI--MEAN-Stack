@@ -9,9 +9,11 @@
     function editFindingController($routeParams,criticService,currentUser,$location) {
 
         var model = this;
+        model.userId =currentUser._id;
         var findingId = $routeParams.findingId;
         model.updateFinding = updateFinding;
         model.deleteFinding = deleteFinding;
+        model.logout = logout;
 
         function init() {
             criticService
@@ -20,6 +22,16 @@
                     model.finding = finding;
                 })
         }init();
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
+        }
 
         function updateFinding() {
             var newFinding = {

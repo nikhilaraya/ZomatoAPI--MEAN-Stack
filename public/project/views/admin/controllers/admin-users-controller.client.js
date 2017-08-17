@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("adminUserController", adminUserController);
 
-    function adminUserController(userService) {
+    function adminUserController(userService,$location) {
         var model = this;
         model.createUser = createUser;
         model.updateUser = updateUser;
@@ -72,20 +72,25 @@
         }
 
         function createUser(username,password,role) {
-            var newUser = {
-                username : username,
-                password : password,
-                role : role
-            }
+            if (username === "" || password === "") {
 
-            userService.registerUser(newUser).then(function (user) {
-                model.message = "user created successfully";
-                userService
-                    .findAllUsers()
-                    .then(function (users) {
-                        model.users = users;
-                    });
-            })
+            }
+            else {
+                var newUser = {
+                    username: username,
+                    password: password,
+                    role: role
+                }
+
+                userService.registerUser(newUser).then(function (user) {
+                    model.message = "user created successfully";
+                    userService
+                        .findAllUsers()
+                        .then(function (users) {
+                            model.users = users;
+                        });
+                })
+            }
         }
     }
 

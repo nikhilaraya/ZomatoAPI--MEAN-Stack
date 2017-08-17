@@ -108,9 +108,10 @@ body {
     color: #fed136 !important;
 }
 .seachBox{
-    top:300px;
-    position: absolute;
-    left:450px;
+    padding-top: 300px;
+    margin-left: 35%;
+    margin-right: 25%;
+    margin-bottom: 10%;
 }
 .searchBar{
     width: 500px;
@@ -293,9 +294,10 @@ a:hover{
         padding-bottom: 30px;
     }
     .seachBox{
-        top:320px;
-        position: absolute;
-        left:50px;
+        padding-top: 300px;
+        margin-left: 15%;
+        margin-right: 10%;
+        margin-bottom: 10%;
     }
     .searchBar{
         width: 300px;

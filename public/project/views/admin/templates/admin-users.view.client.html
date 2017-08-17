@@ -5,34 +5,57 @@
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand headerColor">User Operations</span>
+            <span class="navbar-brand headerColor">Manage Users</span>
             <p class="navbar-text pull-right">
-                <a  class="navbar-link">
-
+                <a href="#!/" class="navbar-link">
+                    <span class="glyphicon glyphicon-home headerColor">
+                    </span>
                 </a>
             </p>
         </div>
     </div>
 </nav>
+
 <div class="container-fluid adminUsersPadding">
     <div class="container-fluid">
     <div class="alert alert-success" ng-show="model.message">{{model.message}}</div>
+        <form name="createUserForm" novalidate>
     <div class="row">
         <div class="col-xs-12 col-md-3">
-            <input type="text" class="form-control" placeholder="Enter Username" ng-model="model.username">
+            <input type="text"
+                   name="username"
+                   class="form-control"
+                   placeholder="Enter Username"
+                   ng-model="model.username"
+                   required>
+            <div ng-show="createUserForm.username.$invalid && createUserForm.$submitted"
+                 class="alert alert-danger">
+                Username is required
+            </div>
         </div>
         <div class="col-xs-12 col-md-3">
-            <input type="password" class="form-control" placeholder="Enter Password" ng-model="model.password">
+            <input type="password"
+                   class="form-control"
+                   placeholder="Enter Password"
+                   ng-model="model.password"
+                   name="password"
+                   required>
+            <div ng-show="createUserForm.password.$invalid && createUserForm.$submitted"
+                 class="alert alert-danger">
+                Password is required
+            </div>
         </div>
         <div class="col-xs-12 col-md-3">
             <select ng-model="model.role" class="form-control">
                 <option value="">Select Role</option>
                 <option value="Admin">Admin</option>
                 <option value="User">User</option>
+                <option value="Critic">Critic</option>
             </select>
         </div>
         <div class="col-xs-12 col-md-3">
-            <a class="btn btn-block btn-primary addYellow" ng-click="model.createUser(model.username,model.password,model.role)">Create User</a>
+            <input type="submit" value="Create User" class="btn btn-block btn-primary addYellow"
+               ng-click="model.createUser(model.username,model.password,model.role)">
         </div>
 </div>
 
@@ -49,10 +72,11 @@
                 <option value="">Select Role</option>
                 <option value="Admin">Admin</option>
                 <option value="User">User</option>
+                <option value="Critic">Critic</option>
             </select>
         </div>
         <div class="col-xs-3">
-            <a class="btn btn-primary form-control" ng-click="model.updateUser(model.user._id,model.user)">Update</a>
+            <a class="btn btn-primary form-control addYellow" ng-click="model.updateUser(model.user._id,model.user)">Update</a>
         </div>
     </div>
 

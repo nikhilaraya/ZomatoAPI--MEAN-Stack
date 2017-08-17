@@ -12,25 +12,32 @@
         model.username = currentUser.username;
         model.searchBasedOnLocation = searchBasedOnLocation;
         model.submitFinding = submitFinding;
+        model.logout = logout;
         $scope.details = {};
 
         function submitFinding(critic) {
-            var criticFinding = {
-                userId : model.userId,
-                username : model.username,
-                restName: critic.restName,
-                finding : critic.finding
+            if(model.critic.restName === undefined||model.critic.finding === undefined)
+            {
+
             }
-            criticService
-                .createFinding(criticFinding)
-                .then(function (finding) {
-                    if(finding) {
-                        $location.url('/my-profile');
-                    }
-                    else{
-                        model.message = 'could not submit your finding!'
-                    }
-                })
+            else {
+                var criticFinding = {
+                    userId: model.userId,
+                    username: model.username,
+                    restName: critic.restName,
+                    finding: critic.finding
+                }
+                criticService
+                    .createFinding(criticFinding)
+                    .then(function (finding) {
+                        if (finding) {
+                            $location.url('/my-profile');
+                        }
+                        else {
+                            model.message = 'could not submit your finding!'
+                        }
+                    })
+            }
         }
 
         function searchBasedOnLocation() {
@@ -49,6 +56,16 @@
                 model.resta = restaurants;
             });
 
+        }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
         }
     }
 

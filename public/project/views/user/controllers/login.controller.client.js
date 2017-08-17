@@ -28,7 +28,7 @@
                         model.message = "sorry!"+username+" has not been registered!"
                     }
                 },function () {
-                    model.message = "sorry!"+username+" has not been registered!";
+                    model.message = "sorry! couldnt login";
                 });
         }
 

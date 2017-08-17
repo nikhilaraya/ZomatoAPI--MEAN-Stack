@@ -1,11 +1,44 @@
-<div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width">
+            <a href="#!/my-profile" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
+          </span>
+            </a>
+            <span class="navbar-brand navbarHeading">
+                Findings
+            </span>
+            <p class="navbar-text pull-right">
+                <a href="#!/" class="navbar-link">
+                    <span class="glyphicon glyphicon-home headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid adminReviewsPadding">
+    <div class="container-fluid">
     <div class="" ng-repeat="finding in model.findings">
         <div class="panel panel-default">
             <div class="panel-body">
-                <a href="#!/critic/{{finding._id}}/edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
+                <a href="#!/critic/{{finding._id}}/edit"><span class="pull-right glyphicon glyphicon-cog panelText"></span></a>
                 <a class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span>{{finding.restName}}</a>
                 <h5><i>{{finding.finding}}</i></h5>
             </div>
         </div>
     </div>
+    </div>
 </div>
+<nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width">
+            <p class="navbar-text pull-right">
+                <a href="" class="navbar-link">
+                    <span ng-click="model.logout()" class="glyphicon glyphicon-off headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

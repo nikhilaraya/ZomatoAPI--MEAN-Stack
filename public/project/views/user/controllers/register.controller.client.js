@@ -18,25 +18,34 @@
                         model.error = "Username already exists";
                     }
                     else {
-                        var newUser ={
-                            username : user.username,
-                            firstname: user.firstname,
-                            lastname: user.lastname,
-                            email: user.email,
-                            password: user.password
+                        if (user.username === "" || user.password === "" || user.firstname === "" || user.lastname === "") {
+
                         }
-                        console.log(newUser);
-                        return userService
-                            .registerUser(newUser)
-                            .then(function (user) {
-                            $location.url('/my-profile');
-                        },function () {
-                            model.message ="could not register";
-                        })
+                        else if (user.password !== user.password2) {
+
+                        }
+                        else {
+                            var newUser = {
+                                username: user.username,
+                                firstname: user.firstname,
+                                lastname: user.lastname,
+                                email: user.email,
+                                password: user.password
+                            }
+                            console.log(newUser);
+                            return userService
+                                .registerUser(newUser)
+                                .then(function (user) {
+                                    $location.url('/my-profile');
+                                }, function () {
+                                    model.message = "could not register";
+                                })
+                        }
                     }
                 },function () {
 
                 })
         }
+
     }
 })();

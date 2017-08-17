@@ -1,10 +1,41 @@
-<div class="container-fluid criticPadding">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width">
+            <a href="#!/critic/{{model.userId}}" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
+          </span>
+            </a>
+            <span class="navbar-brand navbarHeading">
+                Edit Finding
+            </span>
+            <p class="navbar-text pull-right">
+                <a href="#!/my-profile" class="navbar-link">
+                    <span class="glyphicon glyphicon-user headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid adminReviewsPadding">
     <div class="container-fluid">
         <label for="restName">Select restaurant</label>
         <input type="text" id="restName" ng-model="model.finding.restName" class="form-control" readonly>
         <label for="finding">Finding</label>
         <textarea rows="3" id="finding" class="form-control" ng-model="model.finding.finding"></textarea>
-        <a class="btn btn-primary addYellow" ng-click="model.updateFinding(model.finding)">Update</a>
-        <a class="btn btn-primary addYellow" ng-click="model.deleteFinding(model.finding._id)">Delete</a>
+        <a class="btn btn-primary addYellow form-control bottomMargin" ng-click="model.updateFinding(model.finding)">Update</a>
+        <a class="btn btn-primary addYellow form-control" ng-click="model.deleteFinding(model.finding._id)">Delete</a>
     </div>
 </div>
+<nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width">
+            <p class="navbar-text pull-right">
+                <a href="" class="navbar-link">
+                    <span ng-click="model.logout()" class="glyphicon glyphicon-off headerColor">
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

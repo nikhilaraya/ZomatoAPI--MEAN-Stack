@@ -6,6 +6,7 @@
     function listFindingController(currentUser,criticService) {
         var model = this;
         model.userId = currentUser._id;
+        model.logout = logout;
 
         function init() {
             criticService
@@ -14,5 +15,15 @@
                     model.findings = findings;
                 })
         }init();
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
+        }
     }
 })();
