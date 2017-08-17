@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("userProfileController", userProfileController);
     
-    function userProfileController($location,$routeParams,userService,loggedInUser,restaurantService) {
+    function userProfileController($location,$routeParams,userService,loggedInUser,restaurantService,$scope,homeService) {
         var model = this;
         model.userId = $routeParams.userId;
         model.loggedInId = loggedInUser._id;
@@ -21,6 +21,19 @@
                 getFollowDetails(user);
                 getFavoriteDetails(user);
             });
+
+            model.searchBasedOnLocation = searchBasedOnLocation;
+            $scope.details = {};
+
+            function searchBasedOnLocation() {
+
+                var latitude = $scope.details.geometry.location.lat();
+                var longitude = $scope.details.geometry.location.lng();
+
+                homeService.searchBasedOnLocation(latitude,longitude).then(function (response) {
+                    $location.url("/"+latitude+"/restaurant/"+longitude);
+                })
+            }
 
             userService
                 .isFollowingUser(model.loggedInId,model.userId)

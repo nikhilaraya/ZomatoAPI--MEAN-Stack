@@ -73,6 +73,24 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
 }
+.myProfileBackground{
+    background-image: url("../images/register1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.restListBackground{
+    background-image: url("../images/plainBack.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position-x: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
 .paddingRightHeader{
     padding-right: 15px;
 }
@@ -201,6 +219,9 @@ li.bt-nn {
 .votesSize{
     padding-right: 5px;
 }
+.fontIcon{
+    color: red;
+}
 .restaurantListPadding{
     padding-top: 60px;
     padding-bottom: 70px;
@@ -228,6 +249,11 @@ li.bt-nn {
     padding-right: 0px;
     padding-bottom: 30px;
 }
+.myProfilePadding{
+    padding-top: 70px;
+    padding-bottom: 290px;
+}
+
 @media only screen and (max-width: 768px) {
     .seachBox{
 

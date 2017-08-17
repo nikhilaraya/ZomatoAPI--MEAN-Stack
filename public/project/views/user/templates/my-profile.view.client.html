@@ -1,10 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="#!/login" class="navbar-text pull-left">
-          <span class="glyphicon glyphicon-chevron-left headerColor">
-          </span>
-            </a>
             <span class="navbar-brand headerColor">Profile</span>
             <p class="navbar-text pull-right">
                 <a href="#!/profile" class="navbar-link">
@@ -14,16 +10,16 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid adminReviewsPadding">
+<div class="container-fluid myProfilePadding myProfileBackground">
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-xs-12 col-md-8">
-            <div class="row searchPadding">
-                    <div class="input-group">
-                        <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
-                        <span class="input-group-addon">
+                        <div class="col-md-2"></div>
+                        <div class="col-xs-12 col-md-8">
+                            <div class="row searchPadding">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
+                                    <span class="input-group-addon addYellow">
                             <a ng-click="model.searchBasedOnLocation(searchText)">
-                                 <span class="glyphicon glyphicon-search">
+                                 <span class="glyphicon glyphicon-search addYellow">
                                  </span>
                             </a>
                         </span>
@@ -38,18 +34,20 @@
             </div>
     </div>
     </div>
+    </div>
 
     <div class="container-fluid">
-
+        <div class="well container-fluid">
         <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a data-toggle="pill" href data-target="#Reviews">Reviews</a></li>
-            <li><a data-toggle="pill" href data-target="#Follows">Follows</a></li>
-            <li><a data-toggle="pill" href data-target="#Favorites">Favorites</a></li>
+            <li class="active"><a class="panelText" data-toggle="pill" href data-target="#Reviews"><i class="fa fa-signal votesSize fontIcon" aria-hidden="true"></i>My Reviews</a></li>
+            <li><a class="panelText" data-toggle="pill" href data-target="#Follows"><i class="fa fa-thumbs-up votesSize fontIcon" aria-hidden="true"></i>Following</a></li>
+            <li><a class="panelText" data-toggle="pill" href data-target="#Favorites"><i class="fa fa-heart votesSize fontIcon" aria-hidden="true"></i>My favorites</a></li>
         </ul>
 
         <div class="tab-content">
             <div id="Reviews" class="tab-pane fade in active">
-                <h3 ng-show="model.user.rateAndReviewRestaurant.length<1">No reviews have been given by you</h3>
+                <div class="well panelRemoveColor">
+                <h4 ng-show="model.user.rateAndReviewRestaurant.length<1">No reviews have been given by you</h4>
                 <div ng-show="model.user.rateAndReviewRestaurant.length>0">
                     <div class="well panelRemoveColor">
                         <div ng-repeat="i in model.user.rateAndReviewRestaurant">
@@ -60,10 +58,11 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
             <div id="Follows" class="tab-pane fade">
                 <div class="well panelRemoveColor">
-                <h3 ng-show="model.followsArray.length<1">You have not followed any user</h3>
+                <h4 ng-show="model.followsArray.length<1">You have not followed any user yet.</h4>
                 <div ng-show="model.followsArray.length>0">
                        <div ng-repeat="i in model.followsArray">
                             <a href="#!/user/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.username}}</a>
@@ -74,7 +73,7 @@
             </div>
             <div id="Favorites" class="tab-pane fade">
                 <div class="well panelRemoveColor">
-                <h3 ng-show="model.favRestArray.length<1">User has not added any favorites yet</h3>
+                <h4 ng-show="model.favRestArray.length<1">User has not added any favorites yet</h4>
                     <div ng-show="model.favRestArray.length>0">
                         <div ng-repeat="i in model.favRestArray">
                             <a href="#!/restaurant/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.name}}</a>
@@ -85,7 +84,8 @@
             </div>
         </div>
     </div>
-    <div >
+    </div>
+    <div>
     <a ng-show="model.user.role === 'Admin'" class="btn btn-primary bottomMargin form-control" href="#!/admin">Admin Operations</a>
 </div>
 

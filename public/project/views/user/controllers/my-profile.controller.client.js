@@ -13,6 +13,7 @@
         model.unFollowUser = unFollowUser;
         model.followsArray = [];
         model.favRestArray = [];
+        model.logout = logout;
 
         function init() {
             userService.findUserById(currentUser._id).then(function (user) {
@@ -89,6 +90,16 @@
                 .unFollowUser(model.loggedInId,model.userId).then(function () {
                 model.unFollow = true;
             })
+        }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
         }
 
     }

@@ -15,18 +15,21 @@
     </div>
 </nav>
 
-<div class="container-fluid restaurantListPadding">
+<div class="container-fluid restaurantListPadding restListBackground">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-xs-12 col-md-8">
             <div class="row">
-                <div class="col-xs-10 searchPadding">
-                    <input type="text" ng-model="locationText" auto-populate-places="searchText" class="form-control">
-                </div>
-                <div class="col-xs-2 searchBtnPadding">
-                    <a class="btn btn-primary float-left addYellow" ng-click="model.searchBasedOnLocation(searchText)">
-                        <span class="addYellow"><span class="glyphicon glyphicon-search"></span></span>
-                    </a>
+                <div class="row searchPadding">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
+                        <span class="input-group-addon addYellow">
+                            <a ng-click="model.searchBasedOnLocation(searchText)">
+                                 <span class="glyphicon glyphicon-search addYellow">
+                                 </span>
+                            </a>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -11,6 +11,12 @@ passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 var bcrypt = require("bcrypt-nodejs");
 
+var facebookConfig = {
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+};
+
 app.post('/api/login',passport.authenticate('local'),login);
 app.post('/api/logout', logout);
 app.get('/api/user',findUserByCredentials);
@@ -36,11 +42,11 @@ app.get('/auth/facebook/callback',
         failureRedirect: '/#!/login'
     }));
 
-var facebookConfig = {
+/*var facebookConfig = {
     clientID     : '570649636657678',
     clientSecret : 'ebe2e1005a52b79155e84068c22a8abe',
     callbackURL  : 'http://localhost:3000/auth/facebook/callback'
-};
+};*/
 
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 

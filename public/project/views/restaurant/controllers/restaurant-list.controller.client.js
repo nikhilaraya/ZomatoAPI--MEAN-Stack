@@ -9,6 +9,19 @@
     function restaurantListController($location,homeService,$routeParams,$scope) {
         var model = this;
 
+        model.searchBasedOnLocation = searchBasedOnLocation;
+        $scope.details = {};
+
+        function searchBasedOnLocation() {
+
+            var latitude = $scope.details.geometry.location.lat();
+            var longitude = $scope.details.geometry.location.lng();
+
+            homeService.searchBasedOnLocation(latitude,longitude).then(function (response) {
+                $location.url("/"+latitude+"/restaurant/"+longitude);
+            })
+        }
+
         function init() {
             var latitude = $routeParams['latitude'];
             var longitude = $routeParams['longitude'];
