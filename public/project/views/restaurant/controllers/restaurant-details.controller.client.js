@@ -19,6 +19,8 @@
         model.removeFavorite = removeFavorite;
         model.submitRatingAndReview = submitRatingAndReview;
         var restaurantRatingAndReviews = [];
+        model.logout = logout;
+        model.showReview = true;
 
         function init() {
             homeService
@@ -51,10 +53,12 @@
         init();
 
         function displayRestaurantReviews() {
+            console.log("in display");
             restaurantService
                 .findRestaurantById(restId)
                 .then(function (found) {
                     model.rateReviews = found.rateAndReview;
+                    model.showReview = false;
                 });
         }
 
@@ -157,6 +161,16 @@
                 .then(function () {
                     model.isNotFavorite = true;
                 })
+        }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
         }
     }
 })();

@@ -1,0 +1,22 @@
+<div class="container-fluid criticPadding">
+    <div class="container-fluid">
+<div class="input-group bottomMargin">
+    <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
+    <span class="input-group-addon addYellow">
+            <a ng-click="model.searchBasedOnLocation(searchText)">
+                <span class="glyphicon glyphicon-search addYellow">
+                </span>
+            </a>
+        </span>
+</div>
+        <label for="repeatSelect">Select restaurant</label>
+<select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="model.critic.restName">
+    <option value="">Select Restaurant</option>
+    <option ng-repeat="i in model.resta" value="{{i.name}}">{{i.name}}</option>
+</select>
+        <label for="finding">Finding</label>
+        <textarea rows="3" id="finding" class="form-control" ng-model="model.critic.finding"></textarea>
+        <a class="btn btn-primary addYellow" ng-click="model.submitFinding(model.critic)">Submit Finding</a>
+    </div>
+</div>
+

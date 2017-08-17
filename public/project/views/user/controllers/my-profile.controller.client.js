@@ -23,6 +23,7 @@
             });
 
         }init();
+        
 
         model.searchBasedOnLocation = searchBasedOnLocation;
         $scope.details = {};
@@ -37,6 +38,13 @@
             })
         }
 
+        function listFindings() {
+            criticService
+                .findAllUserFindings(currentUser._id)
+                .then(function (findings) {
+                    
+                })
+        }
         function getFollowDetails(user) {
             var followUsernames = [];
             for(var f in model.user.follows)

@@ -6,8 +6,10 @@
         .module("Foood")
         .controller("restaurantListController", restaurantListController);
 
-    function restaurantListController($location,homeService,$routeParams,$scope) {
+    function restaurantListController($location,homeService,$routeParams,$scope,loggedInUser) {
         var model = this;
+        model.user = loggedInUser;
+        model.logout = logout;
 
         model.searchBasedOnLocation = searchBasedOnLocation;
         $scope.details = {};
@@ -35,5 +37,15 @@
             })
         }
         init();
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
+        }
     }
 })();

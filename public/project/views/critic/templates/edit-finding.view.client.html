@@ -1,0 +1,10 @@
+<div class="container-fluid criticPadding">
+    <div class="container-fluid">
+        <label for="restName">Select restaurant</label>
+        <input type="text" id="restName" ng-model="model.finding.restName" class="form-control" readonly>
+        <label for="finding">Finding</label>
+        <textarea rows="3" id="finding" class="form-control" ng-model="model.finding.finding"></textarea>
+        <a class="btn btn-primary addYellow" ng-click="model.updateFinding(model.finding)">Update</a>
+        <a class="btn btn-primary addYellow" ng-click="model.deleteFinding(model.finding._id)">Delete</a>
+    </div>
+</div>

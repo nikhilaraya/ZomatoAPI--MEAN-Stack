@@ -1,15 +1,17 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="#!/login" class="navbar-text pull-left">
+            <a href="#!/{{model.restaurant.location.latitude}}/restaurant/{{model.restaurant.location.longitude}}" class="navbar-text pull-left">
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
             <span class="navbar-brand headerColor">Details</span>
             <p class="navbar-text pull-right">
-                <a  class="navbar-link">
-
+                <a href="#!/my-profile" ng-show="model.userId" class="navbar-link">
+                    <span class="glyphicon glyphicon-user addYellow"></span>
                 </a>
+                <a ng-hide="model.userId" class="navbar-link headerColor paddingRightHeader" href="#!/login">Login</a>
+                <a ng-hide="model.userId" class="navbar-link headerColor" href="#!/register">Register</a>
             </p>
         </div>
     </div>
@@ -76,7 +78,7 @@
 </div>
 </div>
 <div ng-show="model.userId">
-    <div class="well">
+    <div class="well" ng-show="model.showReview">
         <form class="form-horizontal" role="form">
             <h4>Write a review</h4>
             <div class="form-group review-styling">
@@ -102,7 +104,9 @@
     <div class="container-fluid">
         <div class="navbar-header header-width">
             <p class="navbar-text pull-right">
-                <a href="" class="navbar-link headerColor">
+                <a href="" class="navbar-link">
+                    <span ng-click="model.logout()" ng-show="model.userId" class="glyphicon glyphicon-off headerColor">
+                    </span>
                 </a>
             </p>
         </div>

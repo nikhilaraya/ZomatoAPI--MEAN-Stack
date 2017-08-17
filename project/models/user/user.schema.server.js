@@ -9,7 +9,7 @@ var userSchema = mongoose.Schema({
     firstname:{type:String},
     lastname:{type:String},
     email:{type:String},
-    role:{type: String,default:'User',enum:['Admin','User']},
+    role:{type: String,default:'User',enum:['Admin','User','Critic']},
     rateAndReviewRestaurant:[
         {
             restId: {type: String},

@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="" ng-repeat="finding in model.findings">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="#!/critic/{{finding._id}}/edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
+                <a class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span>{{finding.restName}}</a>
+                <h5><i>{{finding.finding}}</i></h5>
+            </div>
+        </div>
+    </div>
+</div>

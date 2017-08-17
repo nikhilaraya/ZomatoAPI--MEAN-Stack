@@ -12,6 +12,7 @@
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
         model.displayUser = displayUser;
+        model.logout = logout;
 
         function init() {
             findAllUsers();
@@ -31,6 +32,16 @@
             userService.findAllUsers().then(function (users) {
                 model.users = users;
             })
+        }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
         }
 
         function deleteUser(userId) {

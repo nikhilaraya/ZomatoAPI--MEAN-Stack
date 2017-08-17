@@ -4,8 +4,9 @@
 
             <span class="navbar-brand headerColor">FOod</span>
             <p class="navbar-text pull-right">
-                <a class="navbar-link headerColor paddingRightHeader" href="#!/login">Login</a>
-                <a class="navbar-link headerColor" href="#!/register">Register</a>
+                <a ng-show="model.user._id" class="navbar-link headerColor paddingRightHeader" href="#!/my-profile">Profile</a>
+                <a ng-hide="model.user._id" class="navbar-link headerColor paddingRightHeader" href="#!/login">Login</a>
+                <a ng-hide="model.user._id" class="navbar-link headerColor" href="#!/register">Register</a>
             </p>
         </div>
     </div>

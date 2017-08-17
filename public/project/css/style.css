@@ -43,8 +43,14 @@ body {
     background-color: #fed136;
     color: black;
 }
+.alignCenter{
+    text-align: -webkit-right;
+}
 .yellowText{
     color:#fed136;
+}
+.wraping{
+    white-space: nowrap;
 }
 .loginbackground{
     background-image: url("../images/login7.jpg");
@@ -251,9 +257,14 @@ li.bt-nn {
 }
 .myProfilePadding{
     padding-top: 70px;
-    padding-bottom: 290px;
+    padding-bottom: 280px;
 }
-
+.criticPadding{
+    padding-top: 70px;
+}
+a:hover{
+    text-decoration: none;
+}
 @media only screen and (max-width: 768px) {
     .seachBox{
 

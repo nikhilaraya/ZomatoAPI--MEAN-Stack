@@ -5,7 +5,7 @@
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand headerColor">Reviews Options</span>
+            <span class="navbar-brand headerColor">Findings</span>
             <p class="navbar-text pull-right">
                 <a href="#!/" class="navbar-link">
                     <span class="glyphicon glyphicon-home headerColor">
@@ -20,16 +20,16 @@
         <div class="row bottomMargin alignCenter">
             <div class="col-xs-12 col-md-8">
                 <div class="btn-group hidden-xs">
-                    <a href="#!/admin/users" class="btn btn-primary addYellow wraping">
-                        Manage Users
+                    <a href="#!/admin/restaurants" class="btn btn-primary addYellow wraping">
+                        Manage Reviews
                     </a>
                     <a href="#!/admin/critics" class="btn btn-primary addBlack wraping">
                         Manage Critic Findings
                     </a>
                 </div>
                 <div class="btn-group-vertical visible-xs">
-                    <a href="#!/admin/users" class="btn btn-primary addYellow wraping">
-                        Manage Users
+                    <a href="#!/admin/restaurants" class="btn btn-primary addYellow wraping">
+                        Manage Reviews
                     </a>
                     <a href="#!/admin/critics" class="btn btn-primary addBlack wraping">
                         Manage Critic Findings
@@ -37,24 +37,18 @@
                 </div>
             </div>
         </div>
-
-<table class="table table-responsive">
-    <thead>
-    <th>Restaurant</th>
-    <th>Rating</th>
-    <th>Review</th>
-    <th>Delete</th>
-    </thead>
-    <tbody ng-repeat="i in model.displayReviews">
-    <td>{{i.restName}}</td>
-    <td>{{i.rating}}</td>
-    <td>{{i.review}}</td>
-    <td><a class="" ng-click="model.deleteReview(i.reviewId)">
-        <span class="glyphicon glyphicon-trash glyphiconBlack">
-          </span></a></td>
-    </tbody>
-</table>
+<div class="container-fluid">
+    <div class="" ng-repeat="finding in model.findings">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a ng-click="model.deleteFinding(finding._id)"><span class="pull-right glyphicon glyphicon-cog yellowText"></span></a>
+                <a class="panelText wraping"><span class="glyphicon glyphicon-glass votesSize"></span>{{finding.restName}}</a>
+                <h5 class="wraping"><i>{{finding.finding}}</i></h5>
+            </div>
+        </div>
     </div>
+    </div>
+</div>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
     <div class="container-fluid">

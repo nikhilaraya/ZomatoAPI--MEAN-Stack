@@ -6,9 +6,10 @@
         .module("Foood")
         .controller("adminRestaurantController", adminRestaurantController);
 
-    function adminRestaurantController(restaurantService) {
+    function adminRestaurantController(restaurantService,userService,$location) {
         var model = this;
         model.deleteReview = deleteReview;
+        model.logout = logout;
 
         function init() {
             findAllRestaurantReviews();
@@ -18,23 +19,18 @@
             restaurantService
                 .findAllRestaurants()
                 .then(function (restaurants) {
-                    console.log(restaurants[0].rateAndReview[0].review);
                     model.restaurants = restaurants;
-
                     var displayReviews = [];
-
+                    var allReviews;
                     for(var i in restaurants){
-                        console.log("i entering");
                         for(var j in restaurants[i].rateAndReview){
-                            console.log("j entering");
-                            var allReviews={
+                            allReviews={
                                 restName : restaurants[i].name,
-                                username : restaurants[i].rateAndReview[j].userId,
+                                username : restaurants[i].rateAndReview[j].id,
                                 review : restaurants[i].rateAndReview[j].review,
                                 rating : restaurants[i].rateAndReview[j].rating,
                                 reviewId : restaurants[i].rateAndReview[j]._id
                             }
-                            console.log(allReviews.restName);
                             displayReviews.push(allReviews);
                         }
                     }
@@ -49,6 +45,17 @@
                     findAllRestaurantReviews();
                 })
         }
+
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url("/login");
+                },function () {
+                    model.error = "You have not been logged out";
+                });
+        }
+
     }
 
 })();

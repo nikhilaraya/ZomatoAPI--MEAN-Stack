@@ -15,3 +15,4 @@ mongoose.Promise = require('q').Promise;
 
 require('./services/user.service.server');
 require('./services/restaurant.service.server');
+require('./services/critic.service.server');

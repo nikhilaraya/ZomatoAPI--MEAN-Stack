@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
-        <div class="navbar-header header-width mobile-header">
+        <div class="navbar-header header-width mobile-header noArrow">
             <span class="navbar-brand headerColor">Profile</span>
             <p class="navbar-text pull-right">
                 <a href="#!/profile" class="navbar-link">
@@ -35,7 +35,19 @@
     </div>
     </div>
     </div>
-
+<div class="container-fluid" ng-show="model.user.role === 'Admin'">
+    <div>
+        <a class="btn btn-block btn-primary addYellow" href="#!/admin/users">Manage Users</a>
+        <a class="btn btn-block btn-primary addYellow bottomMargin" href="#!/admin/restaurants">Manage Restaurants</a>
+        <a class="btn btn-block btn-primary addYellow bottomMargin" href="#!/admin/critics">Manage critics</a>
+    </div>
+</div>
+    <div class="container-fluid" ng-show="model.user.role === 'Critic'">
+        <div>
+            <a class="btn btn-block btn-primary addYellow" href="#!/critic">Submit Findings</a>
+            <a class="btn btn-block btn-primary addYellow" href="#!/critic/{{model.loggedInId}}">View All findings</a>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="well container-fluid">
         <ul class="nav nav-tabs nav-justified">
@@ -85,9 +97,7 @@
         </div>
     </div>
     </div>
-    <div>
-    <a ng-show="model.user.role === 'Admin'" class="btn btn-primary bottomMargin form-control" href="#!/admin">Admin Operations</a>
-</div>
+
 
 
 

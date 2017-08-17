@@ -11,7 +11,10 @@
             .when("/",{
                 templateUrl: "views/home/templates/home.view.client.html",
                 controller: 'homeController',
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    loggedInUser : loggedInUser
+                }
             })
             .when("/login",{
                 templateUrl:'views/user/templates/login.view.client.html',
@@ -47,7 +50,10 @@
             .when("/:latitude/restaurant/:longitude",{
                 templateUrl:'views/restaurant/templates/restaurant-list.view.client.html',
                 controller: 'restaurantListController',
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    loggedInUser : loggedInUser
+                }
             })
             .when("/restaurant/:restId",{
                 templateUrl:'views/restaurant/templates/restaurant-details.view.client.html',
@@ -68,7 +74,10 @@
             .when("/admin/users",{
                 templateUrl:'views/admin/templates/admin-users.view.client.html',
                 controller: 'adminUserController',
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
             })
             .when("/admin",{
                 templateUrl:'views/admin/templates/admin-options.view.client.html'
@@ -76,7 +85,42 @@
             .when("/admin/restaurants",{
                 templateUrl:'views/admin/templates/admin-restaurants.view.client.html',
                 controller: 'adminRestaurantController',
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when("/admin/critics",{
+                templateUrl:'views/admin/templates/admin-critics.view.client.html',
+                controller: 'adminCriticController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when("/critic",{
+                templateUrl:'views/critic/templates/new-finding.view.client.html',
+                controller: 'criticNewController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when("/critic/:criticId",{
+                templateUrl:'views/critic/templates/list-finding.view.client.html',
+                controller: 'listFindingController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
+            })
+            .when("/critic/:findingId/edit",{
+                templateUrl:'views/critic/templates/edit-finding.view.client.html',
+                controller: 'editFindingController',
+                controllerAs: 'model',
+                resolve: {
+                    currentUser: checkLoggedIn
+                }
             })
 
     }

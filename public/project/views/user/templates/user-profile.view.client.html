@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="#!/login" class="navbar-text pull-left">
+            <a href="#!/my-profile" class="navbar-text pull-left">
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
@@ -126,8 +126,8 @@
     <div class="container-fluid">
         <div class="navbar-header header-width">
             <p class="navbar-text pull-right">
-                <a href="" class="navbar-link">
-                    <span ng-click="model.logout()" class="glyphicon glyphicon-off headerColor">
+                <a ng-click="model.logout()" ng-show="model.loggedInId" class="navbar-link">
+                    <span class="glyphicon glyphicon-off headerColor">
                     </span>
                 </a>
             </p>

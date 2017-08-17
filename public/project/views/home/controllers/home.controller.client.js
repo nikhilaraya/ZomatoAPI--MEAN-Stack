@@ -6,9 +6,10 @@
         .module("Foood")
         .controller("homeController", homeController);
     
-    function homeController($location,homeService,$scope) {
+    function homeController($location,homeService,$scope,loggedInUser) {
         var model = this;
         model.searchBasedOnLocation = searchBasedOnLocation;
+        model.user = loggedInUser;
         $scope.details = {};
 
         function searchBasedOnLocation() {
