@@ -38,8 +38,8 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect: '/project/#/my-profile',
-        failureRedirect: '/project/#/login'
+        successRedirect: '/project/#!/my-profile',
+        failureRedirect: '/project/#!/login'
     }));
 
 /*var facebookConfig = {
