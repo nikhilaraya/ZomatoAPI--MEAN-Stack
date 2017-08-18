@@ -58,7 +58,6 @@
                 .findRestaurantById(restId)
                 .then(function (found) {
                     model.rateReviews = found.rateAndReview;
-                    model.showReview = false;
                 });
         }
 
