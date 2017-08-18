@@ -27,7 +27,6 @@ function deleteFinding(req,res) {
 function editFinding(req,res) {
     var findingId = req.params.findingId;
     var newFinding = req.body;
-    console.log(newFinding+findingId);
     criticModel
         .updateFinding(findingId,newFinding)
         .then(function (finding) {
@@ -52,7 +51,6 @@ function getFinding(req,res) {
 }
 
 function findAllFindingsForUser(req,res) {
-    console.log("here")
     var userId = req.params.userId;
     criticModel
         .getFindingsForUser(userId)

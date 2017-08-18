@@ -28,7 +28,6 @@
         }
 
         function findAllUsers() {
-            console.log("dfsdf");
             userService.findAllUsers().then(function (users) {
                 model.users = users;
             })

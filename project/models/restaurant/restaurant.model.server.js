@@ -28,16 +28,13 @@ function getAllRestaurants() {
 }
 
 function createRestaurant(restObj) {
-    console.log("11");
     return restaurantModel.create(restObj);
 }
 function findRestaurantById(restId) {
-    console.log("4"+restId);
     return restaurantModel.find({restId: restId});
 }
 
 function addRatingAndReview(userId,rateAndReviewObj) {
-    console.log("17");
     var rateAndReview = {
         userId : userId,
         rating : rateAndReviewObj.rating,

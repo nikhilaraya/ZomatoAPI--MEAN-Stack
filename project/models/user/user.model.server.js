@@ -57,7 +57,6 @@ function followUser(userId,followId) {
 }
 
 function addRateAndReview(rateReviewObj) {
-    console.log("23");
     var rateReview ={
         restId : rateReviewObj.restId,
         rating : rateReviewObj.rating,

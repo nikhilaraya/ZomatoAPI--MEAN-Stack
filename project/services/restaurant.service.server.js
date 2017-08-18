@@ -30,14 +30,18 @@ function getAllRestaurants(req,res) {
 }
 function getRatingAndReviews(req,res) {
     var restId = req.params.restId;
-    restaurantModel.getRatingAndReviews(restId).then(function (restaurant) {
+    restaurantModel
+        .getRatingAndReviews(restId)
+        .then(function (restaurant) {
 
     })
 }
 
 function createRestaurant(req,res) {
     var restObj = req.body;
-    restaurantModel.createRestaurant(restObj).then(function (restaurant) {
+    restaurantModel
+        .createRestaurant(restObj)
+        .then(function (restaurant) {
         if(restaurant){
             res.json(restaurant);
         }
@@ -65,7 +69,8 @@ function addRatingAndReview(req,res) {
     var rateAndReviewObj = req.body;
     var userId = req.params.userId;
     restaurantModel
-        .addRatingAndReview(userId,rateAndReviewObj).then(function (restaurant) {
+        .addRatingAndReview(userId,rateAndReviewObj)
+        .then(function (restaurant) {
         if(restaurant)
         {
             res.json('true');

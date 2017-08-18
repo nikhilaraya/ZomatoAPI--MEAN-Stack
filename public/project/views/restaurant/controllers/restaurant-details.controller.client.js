@@ -32,9 +32,7 @@
             homeService
                 .getRestaurantReviewsFromApi(restId)
                 .then(function (response) {
-                    console.log(response.data);
                     model.restaurantApiReviews = response.data.user_reviews;
-                    console.log(response.data.user_reviews);
                 });
 
             userService
@@ -53,7 +51,6 @@
         init();
 
         function displayRestaurantReviews() {
-            console.log("in display");
             restaurantService
                 .findRestaurantById(restId)
                 .then(function (found) {

@@ -152,20 +152,17 @@ function isFavoriteRestaurant(req,res) {
     var userId = req.params.userId;
     var restId = req.params.restId;
 
-                    userModel
-                        .isFavoriteRestaurant(userId,restId)
-                        .then(function (liked) {
-                            if(liked) {
-                                console.log("jjjjj");
-                                res.json('true');
-                            }
-                            else {
-                                console.log("kkkk");
-                                res.send('false');
-                            }
-                        },function () {
-                            console.log("here");
-                        });
+    userModel
+        .isFavoriteRestaurant(userId,restId)
+        .then(function (liked) {
+            if(liked) {
+                res.json('true');
+            }
+            else {
+                res.send('false');
+            }
+        },function () {
+        });
 
 }
 
@@ -173,11 +170,11 @@ function addToFavorites(req,res) {
     var userId = req.params.userId;
     var restId = req.params.restId;
 
-                userModel
-                    .addToFavorites(userId,restId)
-                    .then(function(userUpdated) {
-                        res.json(userUpdated);
-                    });
+    userModel
+        .addToFavorites(userId,restId)
+        .then(function(userUpdated) {
+            res.json(userUpdated);
+        });
 
 }
 

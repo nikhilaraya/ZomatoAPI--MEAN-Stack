@@ -35,7 +35,7 @@
                 }
             })
             .when("/my-profile",{
-                templateUrl:'views/user/templates/my-profile.view.client.html',
+                templateUrl:'views/user/templates/profile.view.client.html',
                 controller: 'myProfileController',
                 controllerAs: 'model',
                 resolve: {
