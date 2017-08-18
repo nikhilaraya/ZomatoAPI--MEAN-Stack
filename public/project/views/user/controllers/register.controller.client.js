@@ -25,11 +25,16 @@
 
                         }
                         else {
+                            if(user.username === 'admin')
+                            {
+                                user.role = 'Admin';
+                            }
                             var newUser = {
                                 username: user.username,
                                 firstname: user.firstname,
                                 lastname: user.lastname,
                                 email: user.email,
+                                role: user.role,
                                 password: user.password
                             }
                             console.log(newUser);
