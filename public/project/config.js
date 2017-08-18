@@ -27,7 +27,7 @@
                 controllerAs: 'model'
             })
             .when("/profile",{
-                templateUrl:'views/user/templates/profile.view.client.html',
+                templateUrl:'views/user/templates/edit-profile.view.client.html',
                 controller: 'profileController',
                 controllerAs: 'model',
                 resolve: {

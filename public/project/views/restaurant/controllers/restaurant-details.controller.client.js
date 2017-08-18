@@ -76,26 +76,31 @@
 
 
         function submitRatingAndReview() {
-            console.log("in controller begin");
-            var rateReviewObj ={
-                rating: model.rating,
-                review: model.review,
-                restId: restId,
-                userId: model.userId,
-                username: loggedInUser.username,
-                restname : model.restaurant.name
-            }
+            if(model.rating === undefined && model.review === undefined)
+            {
 
-            restaurantService.findRestaurantById(restId)
-                .then(function (foundRestaurantId) {
-                    console.log(foundRestaurantId);
-                    if(foundRestaurantId !== null){
-                        submitReviews(rateReviewObj);
-                    }
-                    else {
-                        createRest(rateReviewObj);
-                    }
-                });
+            }
+            else {
+                var rateReviewObj = {
+                    rating: model.rating,
+                    review: model.review,
+                    restId: restId,
+                    userId: model.userId,
+                    username: loggedInUser.username,
+                    restname: model.restaurant.name
+                }
+
+                restaurantService.findRestaurantById(restId)
+                    .then(function (foundRestaurantId) {
+                        console.log(foundRestaurantId);
+                        if (foundRestaurantId !== null) {
+                            submitReviews(rateReviewObj);
+                        }
+                        else {
+                            createRest(rateReviewObj);
+                        }
+                    });
+            }
 
             // restaurantService
             //     .findRestaurantById(restId)

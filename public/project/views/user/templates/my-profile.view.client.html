@@ -55,9 +55,9 @@
     <div class="container-fluid">
         <div class="well container-fluid">
         <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a class="panelText" data-toggle="pill" href data-target="#Reviews"><i class="fa fa-signal votesSize fontIcon" aria-hidden="true"></i><span class="wraping">My Reviews</span></a></li>
-            <li><a class="panelText" data-toggle="pill" href data-target="#Follows"><i class="fa fa-thumbs-up votesSize fontIcon" aria-hidden="true"></i><span class="wraping">Following</span></a></li>
-            <li><a class="panelText" data-toggle="pill" href data-target="#Favorites"><i class="fa fa-heart votesSize fontIcon" aria-hidden="true"></i><span class="wraping">My favorites</span></a></li>
+            <li class="active"><a class="panelText" data-toggle="pill" href data-target="#Reviews"><span class="wraping"><i class="fa fa-signal votesSize fontIcon wraping" aria-hidden="true"></i><span class="wraping">My Reviews</span></span></a></li>
+            <li><a class="panelText" data-toggle="pill" href data-target="#Follows"><span class="wraping"><i class="fa fa-thumbs-up votesSize fontIcon wraping" aria-hidden="true"></i><span class="wraping">Following</span></span></a></li>
+            <li><a class="panelText" data-toggle="pill" href data-target="#Favorites"><span class="wraping"><i class="fa fa-heart votesSize fontIcon wraping" aria-hidden="true"></i><span class="wraping">My favorites</span></span></a></li>
         </ul>
 
         <div class="tab-content ">
@@ -67,8 +67,8 @@
                 <div ng-show="model.user.rateAndReviewRestaurant.length>0">
                     <div class="well panelRemoveColor">
                         <div ng-repeat="i in model.user.rateAndReviewRestaurant">
-                            <a href="#!/restaurant/{{i.restId}}" class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span><span class="wraping">{{i.restName}}</span></a>
-                            <span class="label label-success ratingSizeInReviews">{{i.rating}}/5</span>
+                            <span class="wraping"><a href="#!/restaurant/{{i.restId}}" class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span><span class="wraping">{{i.restName}}</span></a>
+                                <span class="label label-success ratingSizeInReviews">{{i.rating}}/5</span></span>
                             <h5><i class="wraping">{{i.review}}</i></h5>
                             <hr>
                         </div>
@@ -81,7 +81,7 @@
                 <h4 ng-show="model.followsArray.length<1" class="wraping">You have not followed any user yet.</h4>
                 <div ng-show="model.followsArray.length>0">
                        <div ng-repeat="i in model.followsArray">
-                            <a href="#!/user/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.username}}</a>
+                           <span class="wraping"><a href="#!/user/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user wraping votesSize"></span>{{i.username}}</a></span>
                             <hr>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 <h4 ng-show="model.favRestArray.length<1" class="wraping">User has not added any favorites yet</h4>
                     <div ng-show="model.favRestArray.length>0">
                         <div ng-repeat="i in model.favRestArray">
-                            <a href="#!/restaurant/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span><span class="wraping">{{i.name}}</span></a>
+                            <span class="wraping"><a href="#!/restaurant/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-glass wraping votesSize"></span><span class="wraping">{{i.name}}</span></a></span>
                             <hr>
                         </div>
                     </div>

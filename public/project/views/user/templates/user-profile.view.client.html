@@ -1,14 +1,21 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
-            <a href="#!/my-profile" class="navbar-text pull-left">
+            <a href="#!/my-profile" ng-show="model.loggedInId"  class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
+          </span>
+            </a>
+            <a href="#!/" ng-show="!model.loggedInId"  class="navbar-text pull-left">
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
             <span class="navbar-brand headerColor">{{model.user.username}}</span>
             <p class="navbar-text pull-right">
                 <a  class="navbar-link">
-
+                    <a href="#!/" class="navbar-link">
+                    <span class="glyphicon glyphicon-home headerColor">
+                    </span>
+                    </a>
                 </a>
             </p>
         </div>
@@ -19,12 +26,13 @@
     <div class="row">
         <div class="col-xs-12 col-md-2">
             <span>
-                <a class="btn btn-danger" ng-show="model.loggedInId" ng-if="model.unFollow" ng-click="model.followUser()"><span class="fa fa-smile-o votesSize"></span>Follow</a>
-                <a class="btn btn-danger" ng-show="model.loggedInId" ng-if="!model.unFollow" ng-click="model.unFollowUser()"><span class="fa fa-frown-o votesSize"></span>UnFollow</a>
+                <a class="btn btn-danger bottomMargin form-control" ng-show="model.loggedInId" ng-if="model.unFollow" ng-click="model.followUser()"><span class="fa fa-smile-o votesSize"></span><span class="wraping">Follow</span></a>
+                <a class="btn btn-danger bottomMargin form-control" ng-show="model.loggedInId" ng-if="!model.unFollow" ng-click="model.unFollowUser()"><span class="fa fa-frown-o votesSize"></span><span class="wraping">Un follow</span></a>
         </span>
         </div>
         <div class="col-xs-12 col-md-8">
             <div class="row searchPadding">
+                <div class="container-fluid">
                 <div class="input-group">
                     <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
                     <span class="input-group-addon addYellow">
@@ -33,6 +41,7 @@
                                  </span>
                             </a>
                         </span>
+                </div>
                 </div>
             </div>
         </div>
@@ -45,21 +54,21 @@
         </div>
         <div class="well">
         <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a data-toggle="pill" href data-target="#Reviews"><i class="fa fa-signal votesSize fontIcon" aria-hidden="true"></i>Reviews</a></li>
-            <li><a data-toggle="pill" href data-target="#Follows"><i class="fa fa-thumbs-up votesSize fontIcon" aria-hidden="true"></i>Follows</a></li>
-            <li><a data-toggle="pill" href data-target="#Favorites"><i class="fa fa-heart votesSize fontIcon" aria-hidden="true"></i>Favorites</a></li>
+            <li class="active"><a data-toggle="pill" href data-target="#Reviews"><span class="wraping"><i class="fa fa-signal votesSize fontIcon wraping" aria-hidden="true"></i><span class="wraping">Reviews</span></span></a></li>
+            <li><a data-toggle="pill" href data-target="#Follows"><span class="wraping"><i class="fa fa-thumbs-up votesSize fontIcon wraping" aria-hidden="true"></i><span class="wraping">Follows</span></span></a></li>
+            <li><a data-toggle="pill" href data-target="#Favorites"><span class="wraping"><i class="fa fa-heart votesSize fontIcon wraping" aria-hidden="true"></i><span class="wraping">Favorites</span></span></a></li>
         </ul>
 
 
         <div class="tab-content">
             <div id="Reviews" class="tab-pane fade in active">
-                <h4 ng-show="model.user.rateAndReviewRestaurant.length<1">No reviews have been given by this user</h4>
+                <h4 ng-show="model.user.rateAndReviewRestaurant.length<1" class="wraping">No reviews have been given by this user</h4>
                 <div ng-show="model.user.rateAndReviewRestaurant.length>0">
                     <div class="well panelRemoveColor">
                         <div ng-repeat="i in model.user.rateAndReviewRestaurant">
-                            <a href="#!/restaurant/{{i.restId}}" class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span>{{i.restName}}</a>
-                            <span class="label label-success ratingSizeInReviews">{{i.rating}}/5</span>
-                            <h5><i>{{i.review}}</i></h5>
+                            <span class="wraping"><a href="#!/restaurant/{{i.restId}}" class="panelText"><span class="wraping"><span class="glyphicon glyphicon-glass votesSize wraping"></span><span class="wraping">{{i.restName}}</span></span></a>
+                                <span class="label label-success ratingSizeInReviews wraping">{{i.rating}}/5</span></span>
+                            <h5><i><span class="wraping">{{i.review}}</span></i></h5>
                             <hr>
                         </div>
                     </div>
@@ -67,10 +76,10 @@
             </div>
             <div id="Follows" class="tab-pane fade">
                 <div class="well panelRemoveColor">
-                <h4 ng-show="model.followsArray.length<1">User has not followed any other user</h4>
+                <h4 ng-show="model.followsArray.length<1" class="wraping">User has not followed any other user</h4>
                 <div ng-show="model.followsArray.length>0">
                        <div ng-repeat="i in model.followsArray">
-                            <a href="#!/user/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.username}}</a>
+                           <span class="wraping"><a href="#!/user/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user wraping votesSize"></span><span class="wraping">{{i.username}}</span></a></span>
                             <hr>
                         </div>
                     </div>
@@ -78,10 +87,10 @@
             </div>
             <div id="Favorites" class="tab-pane fade">
                 <div class="well panelRemoveColor">
-                <h4 ng-show="model.favRestArray.length<1">User has not added any favorites yet</h4>
+                <h4 ng-show="model.favRestArray.length<1" class="wraping">User has not added any favorites yet</h4>
                     <div ng-show="model.favRestArray.length>0">
                         <div ng-repeat="i in model.favRestArray">
-                            <a href="#!/restaurant/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.name}}</a>
+                            <span class="wraping"><a href="#!/restaurant/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span><span class="wraping">{{i.name}}</span></a></span>
                             <hr>
                         </div>
                     </div>

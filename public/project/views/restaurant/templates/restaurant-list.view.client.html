@@ -1,45 +1,45 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse navColor">
-    <div class="container-fluid">
-        <div class="container-fluid">
-        <div class="navbar-header mobile-header">
-            <a href="#!/my-profile" ng-show="model.user._id" class="navbar-text headerColor pull-left">
-                <span class="glyphicon glyphicon-chevron-left headerColor">
-                </span></a>
-                <a href="#!/" ng-hide="model.user._id" class="navbar-text headerColor pull-left">
-          <span class="glyphicon glyphicon-chevron-left headerColor">
-          </span>
-            </a>
-            <a class="navbar-brand headerColor" href="#">Results</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#!/register" ng-hide="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#!/login" ng-hide="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            <li><a href="#!/my-profile" ng-show="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-        </ul>
-        </div>
-    </div>
-</nav>
-<!--<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">-->
+<!--<nav class="navbar navbar-default navbar-fixed-top navbar-inverse navColor">-->
     <!--<div class="container-fluid">-->
-        <!--<div class="navbar-header header-width mobile-header">-->
-            <!--<a href="#!/my-profile" ng-show="model.user._id" class="navbar-text pull-left">-->
+        <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header mobile-header">-->
+            <!--<a href="#!/my-profile" ng-show="model.user._id" class="navbar-text headerColor pull-left">-->
+                <!--<span class="glyphicon glyphicon-chevron-left headerColor">-->
+                <!--</span></a>-->
+                <!--<a href="#!/" ng-hide="model.user._id" class="navbar-text headerColor pull-left">-->
           <!--<span class="glyphicon glyphicon-chevron-left headerColor">-->
           <!--</span>-->
             <!--</a>-->
-            <!--<a href="#!/" ng-hide="model.user._id" class="navbar-text pull-left">-->
-          <!--<span class="glyphicon glyphicon-chevron-left headerColor">-->
-          <!--</span>-->
-            <!--</a>-->
-            <!--<span class="navbar-brand headerColor">Results</span>-->
-            <!--<p class="navbar-text pull-right">-->
-                <!--<a href="#!/my-profile" ng-show="model.user._id" class="navbar-link">-->
-                    <!--<span class="glyphicon glyphicon-user addYellow"></span>-->
-                <!--</a>-->
-                <!--<a ng-hide="model.user._id" class="navbar-link headerColor paddingRightHeader" href="#!/login">Login</a>-->
-            <!--</p>-->
+            <!--<a class="navbar-brand headerColor" href="#">Results</a>-->
+        <!--</div>-->
+        <!--<ul class="nav navbar-nav navbar-right">-->
+            <!--<li><a href="#!/register" ng-hide="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+            <!--<li><a href="#!/login" ng-hide="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+            <!--<li><a href="#!/my-profile" ng-show="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-user"></span> Profile</a></li>-->
+        <!--</ul>-->
         <!--</div>-->
     <!--</div>-->
 <!--</nav>-->
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
+    <div class="container-fluid">
+        <div class="navbar-header header-width mobile-header">
+            <a href="#!/my-profile" ng-show="model.user._id" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
+          </span>
+            </a>
+            <a href="#!/" ng-hide="model.user._id" class="navbar-text pull-left">
+          <span class="glyphicon glyphicon-chevron-left headerColor">
+          </span>
+            </a>
+            <span class="navbar-brand headerColor">Results</span>
+            <p class="navbar-text pull-right">
+                <a href="#!/my-profile" ng-show="model.user._id" class="navbar-link">
+                    <span class="glyphicon glyphicon-user addYellow"></span>
+                </a>
+                <a ng-hide="model.user._id" class="navbar-link headerColor paddingRightHeader wraping" href="#!/login"><span class="glyphicon glyphicon-log-in addYellow"></span></a>
+            </p>
+        </div>
+    </div>
+</nav>
 
 <div class="container-fluid restaurantListPadding restListBackground">
     <div class="row">
@@ -70,11 +70,11 @@
 <div class="" ng-repeat="restaurant in model.resta">
 <div class="panel panel-default">
     <div class="panel-heading panelColor">
-        <div class="pull-right label label-danger ratingSize"><span class="wraping">{{restaurant.user_rating.aggregate_rating}}/5</span></div>
-        <div class="pull-right votesSize"><b class="wraping">{{restaurant.user_rating.votes}}</b><span class="wraping"> votes</span></div>
+        <span class="wraping"><div class="pull-right label label-danger ratingSize"><span class="wraping"><span class="wraping">{{restaurant.user_rating.aggregate_rating}}/5</span></div>
+            <div class="pull-right votesSize"><b class="wraping">{{restaurant.user_rating.votes}}</b><span class="wraping"> votes</span></div></span>
         <h4>
             <a class="panelText" href="#!/restaurant/{{restaurant.id}}"><span class="wraping">{{restaurant.name}}</span></a>
-        </h4>
+        </h4></span>
     </div>
     <div class="panel-body">
         <div class="clearfix">

@@ -78,16 +78,31 @@
 </div>
 <div ng-show="model.userId">
     <div class="well" ng-show="model.showReview">
-        <form class="form-horizontal" role="form">
+        <form name="ReviewForm" class="form-horizontal" role="form" novalidate>
             <h4>Write a review</h4>
             <div class="form-group review-styling">
                 <label for="rating">Rating(scale 0 to 5)</label>
-                <input class="form-control" type="number" id="rating" ng-model="model.rating" max="5" min="0">
+                <input class="form-control"
+                       type="number"
+                       id="rating"
+                       ng-model="model.rating"
+                       name="rating"
+                       max="5"
+                       min="0" required>
+                <div ng-show="ReviewForm.rating.$invalid && ReviewForm.$submitted"
+                     class="alert alert-danger">Rating is required</div>
                 <label for="review">Review</label>
-                <textarea class="form-control" ng-model="model.review" rows="3" id="review" placeholder="Help other foodies by sharing your review"></textarea>
-                <a ng-click="model.submitRatingAndReview()" class="btn btn-primary pull-left morebtn" type="button">Add your review</a>
+                <textarea class="form-control"
+                          ng-model="model.review"
+                          rows="3"
+                          id="review"
+                          name="review"
+                          placeholder="Help other foodies by sharing your review" required>
+                </textarea>
+                <div ng-show="ReviewForm.review.$invalid && ReviewForm.$submitted"
+                     class="alert alert-danger">Review is required</div>
+                <input type="submit" value="Add a Review" ng-click="model.submitRatingAndReview()" class="btn btn-primary pull-left morebtn"></input>
             </div>
-
         </form>
     </div>
 
