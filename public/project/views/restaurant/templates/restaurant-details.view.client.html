@@ -10,8 +10,7 @@
                 <a href="#!/my-profile" ng-show="model.userId" class="navbar-link">
                     <span class="glyphicon glyphicon-user addYellow"></span>
                 </a>
-                <a ng-hide="model.userId" class="navbar-link headerColor paddingRightHeader" href="#!/login">Login</a>
-                <a ng-hide="model.userId" class="navbar-link headerColor" href="#!/register">Register</a>
+                <a ng-hide="model.userId" class="navbar-link headerColor" href="#!/login">Login</a>
             </p>
         </div>
     </div>
@@ -26,22 +25,22 @@
     <div class="well panelRemoveColor">
     <div class="row">
         <div class="col-md-8">
-            <h1 >{{model.restaurant.name}}
+            <h1 class="wraping">{{model.restaurant.name}}
                 </h1>
             <div class="labelPadding">
-                 <small class="label label-danger ratingSize">{{model.restaurant.cuisine}}</small>
-                 <span class="label label-success ratingSize">{{model.restaurant.user_rating.aggregate_rating}}/5</span>
-                 <span class="votes label label-success ratingSize">{{model.restaurant.user_rating.votes}} votes</span>
+                 <small class="label label-danger ratingSize wraping">{{model.restaurant.cuisine}}</small>
+                 <span class="label label-success ratingSize wraping">{{model.restaurant.user_rating.aggregate_rating}}/5</span>
+                 <span class="votes label label-success ratingSize wraping">{{model.restaurant.user_rating.votes}} votes</span>
 
             </div>
             <div>
                 <small>
-                    <a ng-show="model.userId" ng-if="model.isNotFavorite" class="btn btn-danger" ng-click="model.addToFavorites()"><span class="glyphicon glyphicon-thumbs-up votesSize"></span>Add to Favorites</a>
-                    <a ng-show="model.userId" ng-if="!model.isNotFavorite" class="btn btn-danger" ng-click="model.removeFavorite()"><span class="glyphicon glyphicon-thumbs-down votesSize"></span>Remove From Favorites</a>
+                    <a ng-show="model.userId" ng-if="model.isNotFavorite" class="btn btn-danger" ng-click="model.addToFavorites()"><span class="glyphicon glyphicon-thumbs-up votesSize"></span><span class="wraping">Add to Favorites</span></a>
+                    <a ng-show="model.userId" ng-if="!model.isNotFavorite" class="btn btn-danger" ng-click="model.removeFavorite()"><span class="glyphicon glyphicon-thumbs-down votesSize"></span><span class="wraping">Remove From Favorites</span></a>
                 </small>
             </div>
-            <h3>Address</h3>
-            <div class="labelPadding">{{model.restaurant.location.address}}</div>
+            <h3 class="wraping">Address</h3>
+            <div class="labelPadding"><span class="wraping">{{model.restaurant.location.address}}</span></div>
             <div class="btn-group btn-group-justified btnGroupPadding">
                 <a href="{{model.restaurant.url}}" class="btn btn-block btn-default btnGroupStyling removeRight"><span class="glyphicon glyphicon-tasks votesSize"></span>Go to Website</a>
                 <a href="{{model.restaurant.menu_url}}" class="btn btn-block btn-default btnGroupStyling removeRight"><span class="glyphicon glyphicon-cutlery votesSize"></span>Get Menu</a>
@@ -58,20 +57,20 @@
     </div>
 
     <div class="well" ng-show="model.restaurantApiReviews.review.length>0">
-        <h3 class="my-3">Top Comments</h3>
+        <h3 class="wraping">Top Comments</h3>
         <div ng-repeat="reviewApi in model.restaurantApiReviews">
-            <p><i>{{reviewApi.review.review_text}}</i></p>
+            <p><i><span class="wraping">{{reviewApi.review.review_text}}</span></i></p>
             <hr>
         </div>
     </div>
 <div ng-show="model.userId">
     <div ng-show="model.rateReviews.length>0">
         <div class="well panelRemoveColor">
-            <div class="labelPadding"><h4>Reviews given by website users</h4></div>
+            <div class="labelPadding"><h4 class="wraping">Reviews given by website users</h4></div>
         <div ng-repeat="mm in model.rateReviews">
-            <a href="#!/user/{{mm.userId}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{mm.username}}</a>
-                <span class="label label-success ratingSizeInReviews">{{mm.rating}}/5</span>
-            <h5><i>{{mm.review}}</i></h5>
+            <a href="#!/user/{{mm.userId}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span><span class="wraping">{{mm.username}}</span></a>
+                <span class="label label-success ratingSizeInReviews wraping">{{mm.rating}}/5</span>
+            <h5><i><span class="wraping">{{mm.review}}</span></i></h5>
             <hr>
          </div>
     </div>

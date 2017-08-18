@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("restaurantListController", restaurantListController);
 
-    function restaurantListController($location,homeService,$routeParams,$scope,loggedInUser) {
+    function restaurantListController($location,homeService,$routeParams,$scope,loggedInUser,userService) {
         var model = this;
         model.user = loggedInUser;
         model.logout = logout;

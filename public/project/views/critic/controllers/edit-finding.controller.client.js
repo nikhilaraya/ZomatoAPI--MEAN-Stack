@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("editFindingController", editFindingController);
 
-    function editFindingController($routeParams,criticService,currentUser,$location) {
+    function editFindingController($routeParams,criticService,currentUser,$location,userService) {
 
         var model = this;
         model.userId =currentUser._id;

@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("adminCriticController", adminCriticController);
 
-    function adminCriticController(criticService) {
+    function adminCriticController(criticService,userService,$location) {
         var model = this;
         model.deleteFinding = deleteFinding;
         model.logout = logout;

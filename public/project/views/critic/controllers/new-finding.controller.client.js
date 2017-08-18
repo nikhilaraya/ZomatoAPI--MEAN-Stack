@@ -6,7 +6,7 @@
         .module("Foood")
         .controller("criticNewController", criticNewController);
 
-    function criticNewController($scope,homeService,criticService,currentUser,$location) {
+    function criticNewController($scope,homeService,criticService,currentUser,$location,userService,$location) {
         var model = this;
         model.userId = currentUser._id;
         model.username = currentUser.username;

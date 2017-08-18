@@ -81,6 +81,9 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
 }
+.navColor{
+    background-color: black !important;
+}
 .myProfileBackground{
     background-image: url("../images/register1.png");
     background-size: cover;

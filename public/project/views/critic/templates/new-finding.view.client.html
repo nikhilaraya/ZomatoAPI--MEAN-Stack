@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
-        <div class="navbar-header header-width">
+        <div class="navbar-header header-width mobile-header">
             <a href="#!/critic/{{model.userId}}" class="navbar-text pull-left">
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
             <span class="navbar-brand navbarHeading">
-                New Finding
+                Finding
             </span>
             <p class="navbar-text pull-right">
                 <a href="#!/my-profile" class="navbar-link">
@@ -64,7 +64,7 @@
                  class="alert alert-danger">Please write down your findings</div>
 
         <input type="submit"
-               value="Submit finding"
+               value="Add finding"
                class="btn btn-primary addYellow form-control"
                ng-click="model.submitFinding(model.critic)">
         </form>

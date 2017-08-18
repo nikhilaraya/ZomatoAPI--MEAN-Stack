@@ -3,7 +3,7 @@
         .module("Foood")
         .controller("listFindingController", listFindingController);
 
-    function listFindingController(currentUser,criticService) {
+    function listFindingController(currentUser,criticService,$location,userService) {
         var model = this;
         model.userId = currentUser._id;
         model.logout = logout;

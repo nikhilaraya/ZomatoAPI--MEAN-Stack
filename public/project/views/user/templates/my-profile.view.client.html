@@ -50,14 +50,6 @@
         <div>
             <a class="btn btn-block btn-primary addYellow" href="#!/critic">Add Findings</a>
             <a class="btn btn-block btn-primary addYellow bottomMargin" href="#!/critic/{{model.loggedInId}}">View All findings</a>
-            <div class="setVisibility"><a class="btn btn-block btn-primary bottomMargin">Critic Spacing</a> </div>
-        </div>
-    </div>
-    <div class="container-fluid bottomMargin setVisibility" ng-show="model.user.role === 'User'">
-        <div>
-            <a class="btn btn-block btn-primary addYellow" href="#!/critic">Add Findings</a>
-            <a class="btn btn-block btn-primary addYellow bottomMargin" href="#!/critic/{{model.loggedInId}}">View All findings</a>
-            <div class="setVisibility"><a class="btn btn-block btn-primary bottomMargin">Critic Spacing</a> </div>
         </div>
     </div>
     <div class="container-fluid">
@@ -68,7 +60,7 @@
             <li><a class="panelText" data-toggle="pill" href data-target="#Favorites"><i class="fa fa-heart votesSize fontIcon" aria-hidden="true"></i><span class="wraping">My favorites</span></a></li>
         </ul>
 
-        <div class="tab-content split-left-scrollable">
+        <div class="tab-content ">
             <div id="Reviews" class="tab-pane fade in active">
                 <div class="well panelRemoveColor wellPadding">
                 <h4 ng-show="model.user.rateAndReviewRestaurant.length<1" class="wraping">No reviews have been given by you</h4>
