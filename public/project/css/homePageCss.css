@@ -54,7 +54,7 @@ body { height: 100%; }
     .slideshow li h3 { font-size: 2em; }
 }
 
-.slideshow li:nth-child(1) span { background-image: url('../images/slideImage1.jpg'); }
+.slideshow li:nth-child(1) span { background-image: url('../images/register1.png'); }
 
 .slideshow li:nth-child(2) span {
     background-image: url('../images/slideImage2.jpg');
@@ -64,14 +64,14 @@ body { height: 100%; }
 }
 
 .slideshow li:nth-child(3) span {
-    background-image: url('../images/slideImage3.jpg');
+    background-image: url('../images/sliderImage5.jpg');
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     animation-delay: 12s;
 }
 
 .slideshow li:nth-child(4) span {
-    background-image: url('../images/sliderImage4.jpg');
+    background-image: url('../images/register9.jpg');
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     animation-delay: 18s;
