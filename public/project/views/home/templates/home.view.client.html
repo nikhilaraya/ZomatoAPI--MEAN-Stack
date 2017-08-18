@@ -1,16 +1,28 @@
-<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
-        <div class="navbar-header header-width mobile-header noArrow">
-
-            <span class="navbar-brand headerColor">FOod</span>
-            <p class="navbar-text pull-right">
-                <a ng-show="model.user._id" class="navbar-link headerColor paddingRightHeader" href="#!/my-profile">Profile</a>
-                <a ng-hide="model.user._id" class="navbar-link headerColor paddingRightHeader" href="#!/login">Login</a>
-                <a ng-hide="model.user._id" class="navbar-link headerColor" href="#!/register">Register</a>
-            </p>
+        <div class="navbar-header">
+            <a class="navbar-brand headerColor" href="#">WebSiteName</a>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#!/register" ng-hide="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#!/login" ng-hide="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="#!/my-profile" ng-show="model.user._id" class="navbar-link headerColor"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        </ul>
     </div>
 </nav>
+<!--<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header header-width mobile-header noArrow">-->
+
+            <!--<span class="navbar-brand headerColor">FOod</span>-->
+            <!--<p class="navbar-text pull-right">-->
+                <!--<a ng-show="model.user._id" class="navbar-link headerColor paddingRightHeader" href="#!/my-profile"><span class="wraping">Profile</span></a>-->
+                <!--<a ng-hide="model.user._id" class="navbar-link headerColor paddingRightHeader" href="#!/login"><span class="wraping">Login</span></a>-->
+                <!--<a ng-hide="model.user._id" class="navbar-link headerColor" href="#!/register"><span class="wraping">Register</span></a>-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
 <ul class="slideshow">
     <li>
         <h3></h3>

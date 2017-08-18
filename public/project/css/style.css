@@ -3,9 +3,11 @@ textarea.form-control,
 select.form-control {
     margin-bottom: 5px;
 }
-
 body {
     font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+}
+.setVisibility{
+    visibility: hidden;
 }
 .removeBorder{
     border-bottom-width: 0px;
@@ -118,6 +120,14 @@ body {
 }
 .profileSearch{
     padding-right: 50px!important;
+}
+.split-left-scrollable{
+    position: absolute;
+    top: 299.4px;
+    bottom: 230px;
+    z-index: 1;
+    width: 92.8%;
+    overflow-y: scroll;
 }
 .backgroundSizing{
     background-size: cover;
@@ -252,18 +262,23 @@ li.bt-nn {
     padding-bottom: 60px;
 }
 .searchPadding{
-    padding-left: 50px;
     padding-right: 0px;
     padding-bottom: 30px;
 }
 .myProfilePadding{
     padding-top: 70px;
-    padding-bottom: 280px;
+    padding-bottom: 300px;
 }
 .criticPadding{
     padding-top: 70px;
 }
 a:hover{
+    text-decoration: none;
+}
+a:focus{
+    text-decoration: none;
+}
+a:active{
     text-decoration: none;
 }
 @media only screen and (max-width: 768px) {
@@ -302,5 +317,37 @@ a:hover{
     .searchBar{
         width: 300px;
     }
+    .split-left-scrollable{
+        position: absolute;
+        top: 269.4px;
+        bottom: 230px;
+        z-index: 1;
+        width: auto;
+        overflow-y: scroll;
+    }
 
+}
+@media only screen and (min-width: 40.063em) {
+    .split-left-scrollable{
+        position: absolute;
+        top: 319.4px;
+        bottom: 230px;
+        z-index: 1;
+        width: 92.8%;
+        overflow-y: scroll;
+    }
+}
+
+@media only screen and (max-width: 40em) {
+    .split-left-scrollable{
+        position: absolute;
+        top: 312.4px;
+        bottom: 230px;
+        z-index: 1;
+        width: auto;
+        overflow-y: scroll;
+    }
+    .wellPadding{
+        padding-right: 0px;
+    }
 }

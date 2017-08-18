@@ -1,13 +1,11 @@
 <nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
     <div class="container-fluid">
-        <div class="navbar-header header-width">
+        <div class="navbar-header header-width mobile-header">
             <a href="#!/my-profile" class="navbar-text pull-left">
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand navbarHeading">
-                Edit Profile
-            </span>
+            <span class="navbar-brand headerColor">Edit profile</span>
             <p class="navbar-text pull-right">
                 <a href="#!/" class="navbar-link">
                     <span class="glyphicon glyphicon-home headerColor">
@@ -19,10 +17,11 @@
 </nav>
 
 <div class="container-fluid profilePadding">
+    <div class="container-fluid">
     <div class="col-md-2"></div>
     <div class="col-xs-12 col-md-8">
         <div class="row ">
-            <div class="input-group searchPadding profileSearch">
+            <div class="input-group searchPadding">
                 <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
                 <span class="input-group-addon">
                             <a ng-click="model.searchBasedOnLocation(searchText)">
@@ -73,9 +72,9 @@
    class="btn btn-success btn-block">Update</a>
 <a ng-click="model.deleteUser()"
    class="btn btn-danger btn-block bottomMargin">Unregister</a>
-<a ng-show="model.user.role === 'Admin'" class="btn btn-primary bottomMargin form-control" href="#!/admin">Admin Operations</a>
-    </div>
+ </div>
 </div>
+    </div>
 <nav class="navbar navbar-default navbar-fixed-bottom headerColor removeTopBorder">
     <div class="container-fluid">
         <div class="navbar-header header-width">

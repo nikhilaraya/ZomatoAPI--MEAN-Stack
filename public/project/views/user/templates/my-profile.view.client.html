@@ -11,7 +11,8 @@
     </div>
 </nav>
 <div class="container-fluid myProfilePadding myProfileBackground">
-    <div class="row">
+    <div class="container-fluid row">
+<div class="container-fluid">
                         <div class="col-md-2"></div>
                         <div class="col-xs-12 col-md-8">
                             <div class="row searchPadding">
@@ -34,7 +35,10 @@
             </div>
     </div>
     </div>
+</div>
     </div>
+
+
 <div class="container-fluid" ng-show="model.user.role === 'Admin'">
     <div>
         <a class="btn btn-block btn-primary addYellow" href="#!/admin/users">Manage Users</a>
@@ -42,30 +46,38 @@
         <a class="btn btn-block btn-primary addYellow bottomMargin" href="#!/admin/critics">Manage critics</a>
     </div>
 </div>
-    <div class="container-fluid" ng-show="model.user.role === 'Critic'">
+    <div class="container-fluid bottomMargin" ng-show="model.user.role === 'Critic'">
         <div>
-            <a class="btn btn-block btn-primary addYellow" href="#!/critic">Submit Findings</a>
-            <a class="btn btn-block btn-primary addYellow" href="#!/critic/{{model.loggedInId}}">View All findings</a>
+            <a class="btn btn-block btn-primary addYellow" href="#!/critic">Add Findings</a>
+            <a class="btn btn-block btn-primary addYellow bottomMargin" href="#!/critic/{{model.loggedInId}}">View All findings</a>
+            <div class="setVisibility"><a class="btn btn-block btn-primary bottomMargin">Critic Spacing</a> </div>
+        </div>
+    </div>
+    <div class="container-fluid bottomMargin setVisibility" ng-show="model.user.role === 'User'">
+        <div>
+            <a class="btn btn-block btn-primary addYellow" href="#!/critic">Add Findings</a>
+            <a class="btn btn-block btn-primary addYellow bottomMargin" href="#!/critic/{{model.loggedInId}}">View All findings</a>
+            <div class="setVisibility"><a class="btn btn-block btn-primary bottomMargin">Critic Spacing</a> </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="well container-fluid">
         <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a class="panelText" data-toggle="pill" href data-target="#Reviews"><i class="fa fa-signal votesSize fontIcon" aria-hidden="true"></i>My Reviews</a></li>
-            <li><a class="panelText" data-toggle="pill" href data-target="#Follows"><i class="fa fa-thumbs-up votesSize fontIcon" aria-hidden="true"></i>Following</a></li>
-            <li><a class="panelText" data-toggle="pill" href data-target="#Favorites"><i class="fa fa-heart votesSize fontIcon" aria-hidden="true"></i>My favorites</a></li>
+            <li class="active"><a class="panelText" data-toggle="pill" href data-target="#Reviews"><i class="fa fa-signal votesSize fontIcon" aria-hidden="true"></i><span class="wraping">My Reviews</span></a></li>
+            <li><a class="panelText" data-toggle="pill" href data-target="#Follows"><i class="fa fa-thumbs-up votesSize fontIcon" aria-hidden="true"></i><span class="wraping">Following</span></a></li>
+            <li><a class="panelText" data-toggle="pill" href data-target="#Favorites"><i class="fa fa-heart votesSize fontIcon" aria-hidden="true"></i><span class="wraping">My favorites</span></a></li>
         </ul>
 
-        <div class="tab-content">
+        <div class="tab-content split-left-scrollable">
             <div id="Reviews" class="tab-pane fade in active">
-                <div class="well panelRemoveColor">
-                <h4 ng-show="model.user.rateAndReviewRestaurant.length<1">No reviews have been given by you</h4>
+                <div class="well panelRemoveColor wellPadding">
+                <h4 ng-show="model.user.rateAndReviewRestaurant.length<1" class="wraping">No reviews have been given by you</h4>
                 <div ng-show="model.user.rateAndReviewRestaurant.length>0">
                     <div class="well panelRemoveColor">
                         <div ng-repeat="i in model.user.rateAndReviewRestaurant">
-                            <a href="#!/restaurant/{{i.restId}}" class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span>{{i.restName}}</a>
+                            <a href="#!/restaurant/{{i.restId}}" class="panelText"><span class="glyphicon glyphicon-glass votesSize"></span><span class="wraping">{{i.restName}}</span></a>
                             <span class="label label-success ratingSizeInReviews">{{i.rating}}/5</span>
-                            <h5><i>{{i.review}}</i></h5>
+                            <h5><i class="wraping">{{i.review}}</i></h5>
                             <hr>
                         </div>
                     </div>
@@ -74,7 +86,7 @@
             </div>
             <div id="Follows" class="tab-pane fade">
                 <div class="well panelRemoveColor">
-                <h4 ng-show="model.followsArray.length<1">You have not followed any user yet.</h4>
+                <h4 ng-show="model.followsArray.length<1" class="wraping">You have not followed any user yet.</h4>
                 <div ng-show="model.followsArray.length>0">
                        <div ng-repeat="i in model.followsArray">
                             <a href="#!/user/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.username}}</a>
@@ -85,10 +97,10 @@
             </div>
             <div id="Favorites" class="tab-pane fade">
                 <div class="well panelRemoveColor">
-                <h4 ng-show="model.favRestArray.length<1">User has not added any favorites yet</h4>
+                <h4 ng-show="model.favRestArray.length<1" class="wraping">User has not added any favorites yet</h4>
                     <div ng-show="model.favRestArray.length>0">
                         <div ng-repeat="i in model.favRestArray">
-                            <a href="#!/restaurant/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span>{{i.name}}</a>
+                            <a href="#!/restaurant/{{i.id}}" class="panelText"><span class="glyphicon glyphicon-user votesSize"></span><span class="wraping">{{i.name}}</span></a>
                             <hr>
                         </div>
                     </div>

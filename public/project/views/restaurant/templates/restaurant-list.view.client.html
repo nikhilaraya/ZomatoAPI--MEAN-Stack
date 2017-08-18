@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder">
+<nav class="navbar navbar-default navbar-fixed-top headerColor removeBorder" xmlns="http://www.w3.org/1999/html">
     <div class="container-fluid">
         <div class="navbar-header header-width mobile-header">
             <a href="#!/my-profile" ng-show="model.user._id" class="navbar-text pull-left">
@@ -9,7 +9,7 @@
           <span class="glyphicon glyphicon-chevron-left headerColor">
           </span>
             </a>
-            <span class="navbar-brand headerColor">Search Results</span>
+            <span class="navbar-brand headerColor">Results</span>
             <p class="navbar-text pull-right">
                 <a href="#!/my-profile" ng-show="model.user._id" class="navbar-link">
                     <span class="glyphicon glyphicon-user addYellow"></span>
@@ -27,6 +27,9 @@
         <div class="col-xs-12 col-md-8">
             <div class="row">
                 <div class="row searchPadding">
+                    <div class="container-fluid">
+                        <div class="container-fluid">
+                            <div class="container-fluid">
                     <div class="input-group">
                         <input type="text" class="form-control" ng-model="locationText" auto-populate-places="searchText">
                         <span class="input-group-addon addYellow">
@@ -37,6 +40,9 @@
                         </span>
                     </div>
                 </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -44,22 +50,28 @@
 <div class="" ng-repeat="restaurant in model.resta">
 <div class="panel panel-default">
     <div class="panel-heading panelColor">
-        <div class="pull-right label label-danger ratingSize">{{restaurant.user_rating.aggregate_rating}}/5</div>
-        <div class="pull-right votesSize"><b>{{restaurant.user_rating.votes}}</b> votes</div>
+        <div class="pull-right label label-danger ratingSize"><span class="wraping">{{restaurant.user_rating.aggregate_rating}}/5</span></div>
+        <div class="pull-right votesSize"><b class="wraping">{{restaurant.user_rating.votes}}</b><span class="wraping"> votes</span></div>
         <h4>
-            <a class="panelText" href="#!/restaurant/{{restaurant.id}}">{{restaurant.name}}</a>
+            <a class="panelText" href="#!/restaurant/{{restaurant.id}}"><span class="wraping">{{restaurant.name}}</span></a>
         </h4>
     </div>
     <div class="panel-body">
         <div class="clearfix">
-            <img src="./images/default-food.jpg"
-                 alt="My Image"
-                 class="img-responsive img-rounded pull-left gap-right img-width"/>
-            <p class="float-left">
-            <div><b>Average cost for 2:</b> {{restaurant.average_cost_for_two}}</div>
-            <div><b>cuisines:</b><span class="label label-default">{{restaurant.cuisines}}</span></div>
-            <div><b>Locality:</b> {{restaurant.location.locality_verbose}}</div>
-            </p>
+            <div class="row">
+                <div class="col-xs-12 col-md-2">
+                    <img src="./images/default-food.jpg"
+                         alt="My Image"
+                         class="img-responsive img-rounded pull-left gap-right img-width"/>
+                </div>
+                <div class="col-xs-12 col-md-10">
+                    <p class="float-left">
+                    <div><b class="wraping">Cost for 2:</b><span class="wraping"> {{restaurant.average_cost_for_two}}</span></div>
+                    <div><b class="wraping">cuisines:</b><span class="label label-default wraping">{{restaurant.cuisines}}</span></div>
+                    <div><b class="wraping">Locality:</b><span class="wraping">{{restaurant.location.locality_verbose}}</span></div>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
