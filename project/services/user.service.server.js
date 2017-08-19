@@ -41,7 +41,7 @@ app.get('/auth/facebook/callback',
         successRedirect: '/project/#!/my-profile',
         failureRedirect: '/project/#!/login'
     }));
-
+//
 // var facebookConfig = {
 //
 //     clientID     : '570649636657678',
@@ -73,7 +73,6 @@ function deleteUser(req,res) {
     var userId = req.params.userId;
     userModel.deleteUser(userId)
         .then(function (status) {
-            console.log("delete user"+userId);
             restaurantModel.deleteUserReview(userId)
                 .then(function (status) {
                 userModel.deleteUserFromFollowers(userId)
